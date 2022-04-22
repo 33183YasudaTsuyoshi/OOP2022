@@ -6,31 +6,40 @@ using System.Threading.Tasks;
 
 namespace DistanceConverter {
     class Program {
+
         static void Main(string[] args) {
 
-            if (args.Length >= 1 && args[0] == "-tom"{
-                PrintFeetToMeterList();
+            
+
+            if (args.Length >= 1 && args[0] == "-tom") { 
+                PrintFeetToMeterList(1, 10);
+            }
+            else {
+                PrintMeterToFeetList(1, 10);
             }
 
             
         }
 
-        static void PrintFeetToMeterList(int start,int stop) {
+        private static void PrintFeetToMeterList(int start,int stop) {
+
+            FeetConverter fc = new FeetConverter();
+
             for (int feet = start; feet <= stop; feet++) {
-                double meter = FeetToMeter(feet);
+                double meter = fc.ToMeter(feet);
                 Console.WriteLine("{0} ft ={1:0.0000} m", feet, meter);
             }
         }
 
-        static void PrintMeterToFeetList(int start, int stop) {
+        private static void PrintMeterToFeetList(int start, int stop) {
+
+            FeetConverter fc = new FeetConverter();
+
             for (int meter = start; meter <= stop; meter++) {
-                double feet = MeterToFeet(meter);
-                Console.WriteLine("{0} ft ={1:0.0000} ft", meter, );
+                double feet = fc.FromMeter(meter);
+                Console.WriteLine("{0} ft ={1:0.0000} ft", meter,feet);
             }
         }
-
-
-
 
     }
 }
