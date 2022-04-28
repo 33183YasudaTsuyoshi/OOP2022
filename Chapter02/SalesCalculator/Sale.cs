@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SalesCalculator {
+
     //売り上げクラス
     public class Sale {
+
         //店舗名
         public string ShopName { get; set; } //プロパティ（自動実装プロパティ）
 
