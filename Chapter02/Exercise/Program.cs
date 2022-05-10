@@ -15,20 +15,19 @@ namespace Exercise {
 
             var songs = new Song[] {
                 new Song("a", "b", 594),
-                new Song("a", "b", 432),
-                new Song("a", "b", 343),
-                new Song("a", "b", 255),
+                new Song("c", "d", 432),
+                new Song("e", "f", 343),
+                new Song("g", "h", 255),
             };
 
             PrintSongs(songs);
-
         }
+
         private static void PrintSongs(Song[] songs) {
-            
-        }
-
-        private static void PrintSongs(List<Song> songs) {
-            
+            foreach (var song in songs) {
+                Console.WriteLine("{0},{1},{2:m\\:ss}",
+                    song.Title,song.ArtistName,TimeSpan.FromSeconds(song.Length));
+            }
         }
     }
 }
