@@ -15,6 +15,30 @@ namespace Exercise01 {
 
             Exercise1_2(numbers);
             Console.WriteLine("-----------");
+
+            Exercise1_3(numbers);
+            Console.WriteLine("-----------");
+
+            Exercise1_4(numbers);
+            Console.WriteLine("-----------");
+        }
+
+        private static void Exercise1_3(List<int> numbers) {
+
+            IEnumerable<int> query = numbers.Where(s => s >= 50);
+            foreach (int s in query) {
+                Console.WriteLine(s);
+
+            }
+        }
+        private static void Exercise1_4(List<int> numbers) {
+
+            /*IEnumerable<int> query = numbers.Where(s => );
+            foreach (int s in query) {
+                Console.WriteLine(s);
+            }*/
+
+
         }
 
         private static void Exercise1_1(List<int> numbers) {
