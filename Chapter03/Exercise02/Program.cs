@@ -32,7 +32,7 @@ namespace Exercise02 {
                 if (string.IsNullOrEmpty(line)) 
                     break;
 
-                var index = names.FindAll(s => s == line);
+                var index = names.FindIndex(s => s == line);
                     Console.WriteLine(index);
 
                 
@@ -40,15 +40,28 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_2(List<string> names) {
+
+            int count = names.Count(n => n.Contains('o'));
+            Console.WriteLine(count);
+ 
             
         }
 
         private static void Exercise2_3(List<string> names) {
+            var selected = names.Where(s => s.Contains('o')).ToArray();//配列として抽出
+
+            foreach (var name in selected) {
+                Console.WriteLine(name);
+            }
             
         }
 
         private static void Exercise2_4(List<string> names) {
-            
+            var selected = names.Where(s => s.StartsWith("B")).Select (s=>s.Length);
+
+            foreach (var name in selected) {
+                Console.WriteLine(name);
+            }
         }
     }
 }
