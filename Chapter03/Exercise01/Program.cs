@@ -33,12 +33,14 @@ namespace Exercise01 {
         }
         private static void Exercise1_4(List<int> numbers) {
 
-            /*IEnumerable<int> query = numbers.Where(s => );
-            foreach (int s in query) {
-                Console.WriteLine(s);
-            }*/
+            //引数がIEnumerableからList型に変換
+            var list = numbers.Select(n => n * 2).ToList();
 
+            numbers[5] = 5000;
 
+            foreach (var n in list) {  //遅延実行（即時実行）
+                Console.WriteLine(n);
+            }
         }
 
         private static void Exercise1_1(List<int> numbers) {
