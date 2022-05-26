@@ -13,9 +13,7 @@ namespace Exercise01 {
             Console.WriteLine("入力2");
             var str2 = Console.ReadLine();
 
-            var result = string.Compare(str1, str2, true);
-
-            if (result == 0) {
+            if (string.Compare(str1, str2, ignoreCase : true)　== 0) {
                 Console.WriteLine("一致しています");
             } else {
                 Console.WriteLine("一致していません");
