@@ -26,13 +26,10 @@ namespace Exercise03 {
         }
 
         private static void Exercise3_1(string text) {
-            if (String.IsNullOrWhiteSpace(text)) {
-                Console.WriteLine("空白ではない");
-            } else {
-                Console.WriteLine("空白");
-            }
-                
-            
+
+            Console.WriteLine(text.Where(c => c == ' ').Count());
+
+
         }
 
         private static void Exercise3_2(string text) {
