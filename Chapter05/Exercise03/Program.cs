@@ -45,13 +45,12 @@ namespace Exercise03 {
 
         private static void Exercise3_4(string text) {
 
-            var str = text.Split(' ');
-
-            foreach (var s in text) {
-                if (s <= 4) {
-                    Console.WriteLine(s);
-                }
+            var s = text.Split(' ').Where(word => word.Length <= 4);
+            foreach (var item in s) {
+                Console.WriteLine(item);
             }
+
+            
         }
 
         private static void Exercise3_5(string text) {
