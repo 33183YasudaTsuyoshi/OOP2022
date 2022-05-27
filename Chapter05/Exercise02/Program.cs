@@ -9,9 +9,13 @@ namespace Exercise02 {
         static void Main(string[] args) {
 
             Console.WriteLine("入力1");
-            int num = int.Parse(Console.ReadLine());
-            Console.WriteLine(string.Format("{0:#,0.0}", num));
-             
+            var line = Console.ReadLine();
+            int num;
+            if (int.TryParse(line,out num)) {
+                Console.WriteLine("{0:#,#}", num);
+            } else {
+                Console.WriteLine("数値文字列でありません");
+            }
         }
     }
 }
