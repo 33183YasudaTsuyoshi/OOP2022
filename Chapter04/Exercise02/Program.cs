@@ -38,9 +38,14 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_6(YearMonth[] ymCollection) {
-            foreach (var ym in ymCollection.OrderByDescending(ym => ym.Year)) {
+
+            foreach (var ym in ymCollection.Where( ym => DateTime.IsLeapYear(ym.Year))) {
+                
                 Console.WriteLine(ym);
             }
+
+            var date = ymCollection.Max(ym => ym.Month);
+            Console.WriteLine(date);
         }
 
         //4.2.3
@@ -70,9 +75,6 @@ namespace Exercise02 {
             } else {
                 Console.WriteLine("21世紀のデータはありません");
             }
-            
-
-
 
         }
 
@@ -80,10 +82,8 @@ namespace Exercise02 {
             var array = ymCollection.Select(ym => ym.AddOneMonth());
             foreach (var ym in array) {
                 Console.WriteLine(ym);
-            }
-            
-        }
 
-        
+            }
+        }
     }
 }
