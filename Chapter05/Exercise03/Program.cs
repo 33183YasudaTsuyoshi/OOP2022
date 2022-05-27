@@ -55,14 +55,14 @@ namespace Exercise03 {
 
         private static void Exercise3_5(string text) {
 
-            string[] str = { "Jackdaws", "love", " my", " big", " sphinx", " of", "quartz" };
-
+            var s = text.Split(' ');
             var sb = new StringBuilder();
 
-            foreach (var str1 in str) {
+            foreach (var str1 in s) {
                 sb.Append(str1);
             }
-            Console.WriteLine(text);
+            var b = sb.ToString();
+            Console.WriteLine(b);
         }
     }
 }
