@@ -10,6 +10,8 @@ namespace Exercise03 {
 
             var text = "Jackdaws love my big sphinx of quartz";
 
+            
+
             Exercise3_1(text);
             Console.WriteLine("--------------");
 
@@ -41,12 +43,27 @@ namespace Exercise03 {
             Console.WriteLine(text.Trim().Split(' ').Count());
         }
 
-        private static void Exercise3_4(object text) {
-            
+        private static void Exercise3_4(string text) {
+
+            var str = text.Split(' ');
+
+            foreach (var s in text) {
+                if (s <= 4) {
+                    Console.WriteLine(s);
+                }
+            }
         }
 
-        private static void Exercise3_5(object text) {
-            
+        private static void Exercise3_5(string text) {
+
+            string[] str = { "Jackdaws", "love", " my", " big", " sphinx", " of", "quartz" };
+
+            var sb = new StringBuilder();
+
+            foreach (var str1 in str) {
+                sb.Append(str1);
+            }
+            Console.WriteLine(text);
         }
     }
 }
