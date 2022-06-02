@@ -55,8 +55,10 @@ namespace Exercise01 {
 
         private static void Exercise1_5(int[] numbers) {
             //重複を排除し１０より大きい数がいくつあるか
-            //var s = numbers
-
+            var num = numbers.Distinct();
+            foreach (var n in num.Where(x => x <= 10)) {
+                Console.WriteLine(n);
+            }
 
         }
     }
