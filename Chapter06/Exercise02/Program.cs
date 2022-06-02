@@ -50,27 +50,41 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_2(List<Book> books) {
-            
+            int count = books.Count(b => b.Title.Contains("C#"));
+            Console.WriteLine(count);
         }
 
         private static void Exercise2_3(List<Book> books) {
-            
+
+            var average = books.Where(b => b.Title.Contains("C#")).Average(b => b.Pages);
+            Console.WriteLine(average);
+
         }
 
         private static void Exercise2_4(List<Book> books) {
-            
+            var book = books.FirstOrDefault(x => x.Price >= 4000);
+            Console.WriteLine(book.Title);
         }
 
         private static void Exercise2_5(List<Book> books) {
-            
+
+            var book = books.Where(x => x.Price < 4000).Max(b => b.Pages);
+            Console.WriteLine(book);
         }
 
         private static void Exercise2_6(List<Book> books) {
-            
+
+            var book = books.Where(x => x.Pages >= 400).OrderByDescending(b => b.Price);
+            foreach (var item in book) {
+                Console.WriteLine("{0} {1}", item.Title,item.Price);
+            }
         }
 
         private static void Exercise2_7(List<Book> books) {
-            
+            var book = books.Where(b => b.Title.Contains("C#") && b.Pages <= 500);
+            foreach (var item in book) {
+                Console.WriteLine(item.Title);
+            }
         }
 
         class Book {
