@@ -47,12 +47,17 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4(int[] numbers) {
-            //小さい順に並べて先頭の３つを出力
+            foreach (var s in numbers.OrderBy(x => x).Take(3)) {
+                Console.WriteLine(s);
+            }
 
         }
 
         private static void Exercise1_5(int[] numbers) {
             //重複を排除し１０より大きい数がいくつあるか
+            //var s = numbers
+
+
         }
     }
 }
