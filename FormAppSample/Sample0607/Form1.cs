@@ -14,22 +14,16 @@ namespace Sample0607 {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void btRandom_Click(object sender, EventArgs e) {
 
-            if (nudNum2.Value != 0) {
+            var r = new Random();
 
-                nudAns.Value = nudNum1.Value / nudNum2.Value;
-                nudMod.Value = nudNum1.Value % nudNum2.Value;
 
-            } else {
-                
-                MessageBox.Show ("0で割り算できません！",
-                "エラー",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
+            Ans.Value = r.Next(minValue:(int)Number1.Value, maxValue: (int)Number2.Value + 1);
 
-            }
-            
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
 
         }
     }
