@@ -26,5 +26,9 @@ namespace Sample0607 {
         private void Form1_Load(object sender, EventArgs e) {
 
         }
+
+        private void Number1_ValueChanged(object sender, EventArgs e) {
+
+        }
     }
 }
