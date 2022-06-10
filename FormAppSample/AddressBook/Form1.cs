@@ -42,6 +42,7 @@ namespace AddressBook {
             
         }
 
+        //クリアできない
         private void btPictureClear_Click(object sender, EventArgs e) {
 
             pbPicture.Image = null;
@@ -57,11 +58,55 @@ namespace AddressBook {
                 Address = tbAddress.Text,
                 Company = tbCompany.Text,
                 Picture = pbPicture.Image,
+                listGroup = GetCheckBoxGroup(),
             };
 
             listPerson.Add(newPerson);
 
 
+        }
+        private List<Person.GroupType> GetCheckBoxGroup() {
+
+            var listGroup = new List<Person.GroupType>();
+            if (cbFamily.Checked) {
+                listGroup.Add(Person.GroupType.家族);
+            }
+            if (cbFriend.Checked) {
+                listGroup.Add(Person.GroupType.友人);
+            }
+            if (cbWork.Checked) {
+                listGroup.Add(Person.GroupType.仕事);
+            }
+            if (cbOther.Checked) {
+                listGroup.Add(Person.GroupType.その他);
+            }
+            return listGroup;
+
+        }
+
+        private void dgvPersons_Click(object sender, EventArgs e) {
+
+            int index = dgvPersons.CurrentRow.Index;
+
+            tbName.Text = listPerson[index].Name;
+            tbMailAddress.Text = listPerson[index].MailAddress;
+            tbAddress.Text = listPerson[index].Address;
+            tbCompany.Text = listPerson[index].Company;
+            pbPicture.Image = listPerson[index].Picture;
+
+            foreach (var grop in listPerson[index].listGroup) {
+
+                switch (grop) {
+                    case Person.GroupType.家族:
+                        break;
+                    case Person.GroupType.友人:
+                        break;
+                    case Person.GroupType.その他:
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
     }
 }
