@@ -51,6 +51,8 @@ namespace AddressBook {
 
         private void btAddPerson_Click(object sender, EventArgs e) {
 
+            
+
             Person newPerson = new Person {
 
                 Name = tbName.Text,
@@ -86,6 +88,7 @@ namespace AddressBook {
 
         private void dgvPersons_Click(object sender, EventArgs e) {
 
+            if (dgvPersons.CurrentRow == null) return;
             int index = dgvPersons.CurrentRow.Index;
 
             tbName.Text = listPerson[index].Name;
@@ -94,19 +97,33 @@ namespace AddressBook {
             tbCompany.Text = listPerson[index].Company;
             pbPicture.Image = listPerson[index].Picture;
 
+            groupCheckBoxAllClear();
+
             foreach (var grop in listPerson[index].listGroup) {
 
                 switch (grop) {
                     case Person.GroupType.家族:
+                        cbFamily.Checked = true;
                         break;
                     case Person.GroupType.友人:
+                        cbFriend.Checked = true;
+                        break;
+                    case Person.GroupType.仕事:
+                        cbWork.Checked = true;
                         break;
                     case Person.GroupType.その他:
+                        cbOther.Checked = true;
                         break;
                     default:
                         break;
                 }
             }
+        }
+
+        private void groupCheckBoxAllClear() {
+
+            cbFamily.Checked = cbFriend.Checked = cbWork.Checked = cbOther.Checked = false;
+
         }
     }
 }
