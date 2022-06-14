@@ -8,32 +8,67 @@ namespace Test01 {
         // コンストラクタ
         public ScoreCounter(string filePath) {
 
+            _score = ReadScore(filePath);
 
 
-            
         }
 
 
         //メソッドの概要： 
         private static IEnumerable<Student> ReadScore(string filePath) {
-            
+            List<Student> sales = new List<Student>();
+            string[] lines = File.ReadAllLines(filePath);
+            foreach (string line in lines) {
+                string[] items = line.Split(',');
+                Student sale = new Student {
+                    Name = items[0],
+                    Subject = items[1],
+                    Score = int.Parse(items[2])
+                };
+                sales.Add(sale);
+            }
+            return sales;
 
 
 
 
 
 
-            
+
         }
 
         //メソッドの概要： 
         public IDictionary<string, int> GetPerStudentScore() {
 
+            var dict = new Dictionary<string, int>(); //暗黙の型指定
+
+            foreach (var score in _score) {
+                if (dict.ContainsKey(score.Subject)) {
+                    dict[score.Subject] += score.Score;
+                } else {
+                    dict[score.Subject] = score.Score;
+                }
+            }
+            return dict;
 
 
 
 
-            
         }
+        /*public static IEnumerable<Sale> ReadSales(string filePath) {
+            List<Sale> sales = new List<Sale>();
+            string[] lines = File.ReadAllLines(filePath);
+            foreach (string line in lines) {
+                string[] items = line.Split(',');
+                Sale sale = new Sale {
+                    ShopName = items[0],
+                    ProductCategory = items[1],
+                    Amount = int.Parse(items[2])
+                };
+                sales.Add(sale);
+            }
+            return sales;
+
+        }*/
     }
 }

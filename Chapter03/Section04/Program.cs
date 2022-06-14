@@ -19,6 +19,7 @@ namespace Section04 {
                 Console.WriteLine(s);
             }*/
 
+            //文字数を出力
             IEnumerable<int> query = names.Select(s => s.Length);
             foreach (int n in query) {
                 Console.WriteLine("{0}",n);
