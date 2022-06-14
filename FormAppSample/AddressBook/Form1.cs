@@ -19,17 +19,6 @@ namespace AddressBook {
             dgvPersons.DataSource = listPerson;
         }
 
-        private void Form1_Load(object sender, EventArgs e) {
-
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e) {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e) {
-
-        }
 
         //btPictureOpen 開く　キャンセル
         private void btPictureOpen_Click(object sender, EventArgs e) {
@@ -42,29 +31,36 @@ namespace AddressBook {
             
         }
 
-        //クリアできない
+        //写真をクリア
         private void btPictureClear_Click(object sender, EventArgs e) {
 
             pbPicture.Image = null;
 
         }
 
+        
+
+        
         private void btAddPerson_Click(object sender, EventArgs e) {
+            if (tbName.Text != null) {
+                Person newPerson = new Person {
 
-            
+                    Name = tbName.Text,
+                    MailAddress = tbMailAddress.Text,
+                    Address = tbAddress.Text,
+                    Company = tbCompany.Text,
+                    Picture = pbPicture.Image,
+                    listGroup = GetCheckBoxGroup(),
+                };
+                listPerson.Add(newPerson);
+                //dgvPersons.Rows[dgvPersons.RowCount-1].S
 
-            Person newPerson = new Person {
+            } else {
+                
+                MessageBox.Show("キャプション");
 
-                Name = tbName.Text,
-                MailAddress = tbMailAddress.Text,
-                Address = tbAddress.Text,
-                Company = tbCompany.Text,
-                Picture = pbPicture.Image,
-                listGroup = GetCheckBoxGroup(),
-            };
 
-            listPerson.Add(newPerson);
-
+            }
 
         }
         private List<Person.GroupType> GetCheckBoxGroup() {
@@ -86,6 +82,7 @@ namespace AddressBook {
 
         }
 
+        //クリックしたら表示
         private void dgvPersons_Click(object sender, EventArgs e) {
 
             if (dgvPersons.CurrentRow == null) return;
@@ -120,10 +117,43 @@ namespace AddressBook {
             }
         }
 
+        //グループのテェックボックスをオールクリア
         private void groupCheckBoxAllClear() {
 
             cbFamily.Checked = cbFriend.Checked = cbWork.Checked = cbOther.Checked = false;
 
         }
+
+
+        //更新ボタンが押された状態
+        private void btUpdate_Click(object sender, EventArgs e) {
+
+            listPerson[dgvPersons.CurrentRow.Index].Name = tbName.Text;
+            listPerson[dgvPersons.CurrentRow.Index].MailAddress = tbMailAddress.Text;
+            listPerson[dgvPersons.CurrentRow.Index].Address = tbAddress.Text;
+            listPerson[dgvPersons.CurrentRow.Index].Company = tbCompany.Text;
+            listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
+            listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
+            dgvPersons.Refresh();//データグリッドビュー更新
+
+        }
+
+        //削除ボタンが押された時の処理
+        private void tbDeletion_Click(object sender, EventArgs e) {
+
+            listPerson.RemoveAt(dgvPersons.CurrentRow.Index);
+            if (listPerson.Count() == 0) {
+                tbDeletion.Enabled = false;
+                btUpdate.Enabled = false;
+            }
+
+        }
+        private void Form1_Load(object sender, EventArgs e) {
+            tbDeletion.Enabled = false;//削除ボタンをマスト
+            btUpdate.Enabled = false;
+        }
+
+
+
     }
 }
