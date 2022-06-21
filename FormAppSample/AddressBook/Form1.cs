@@ -34,6 +34,9 @@ namespace AddressBook {
 
 
         private void btAddPerson_Click(object sender, EventArgs e) {
+
+            
+
             //氏名が未入力なら登録しない
             if (String.IsNullOrWhiteSpace(tbName.Text)) {
                 MessageBox.Show("氏名が入力されていません");
@@ -47,6 +50,9 @@ namespace AddressBook {
                 Company = cbCompany.Text,
                 Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup(),
+                Registration = dtpRegistDate.Value,
+
+
             };
             listPerson.Add(newPerson);
             dgvPersons.Rows[dgvPersons.RowCount - 1].Selected = true;
@@ -84,6 +90,8 @@ namespace AddressBook {
             }
         }
 
+
+        
 
         private List<Person.GroupType> GetCheckBoxGroup() {
 
@@ -124,6 +132,8 @@ namespace AddressBook {
             tbAddress.Text = listPerson[index].Address;
             cbCompany.Text = listPerson[index].Company;
             pbPicture.Image = listPerson[index].Picture;
+            dtpRegistDate.Value = 
+                listPerson[index].Registration.Year > 1900 ? listPerson[index].Registration : DateTime.Today;
 
             groupCheckBoxAllClear(); //グループチェックボックスを一旦初期化
 
@@ -166,6 +176,7 @@ namespace AddressBook {
             listPerson[dgvPersons.CurrentRow.Index].Company = cbCompany.Text;
             listPerson[dgvPersons.CurrentRow.Index].listGroup = GetCheckBoxGroup();
             listPerson[dgvPersons.CurrentRow.Index].Picture = pbPicture.Image;
+            listPerson[dgvPersons.CurrentRow.Index].Registration = dtpRegistDate.Value;
             dgvPersons.Refresh();//データグリッドビュー更新
 
         }
@@ -223,7 +234,8 @@ namespace AddressBook {
                     MessageBox.Show(ex.Message);
                 }
 
-                //コンボボックスへ登録
+                cbCompany.Items.Clear();
+                //コンボボックスへ新規登録
                 foreach (var item in listPerson.Select(n => n.Company)) {
 
                     setCbCompany(item);//存在する会社を登録
