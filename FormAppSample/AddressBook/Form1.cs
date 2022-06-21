@@ -53,7 +53,7 @@ namespace AddressBook {
 
         
             setCbCompany(cbCompany.Text);
-            if (listPerson.Count() == 0) {
+            if (listPerson.Count() > 0) {
 
                 EnabledCheck();//マスク処理呼び出し
 
