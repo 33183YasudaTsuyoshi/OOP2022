@@ -50,6 +50,8 @@ namespace AddressBook {
                 Company = cbCompany.Text,
                 Picture = pbPicture.Image,
                 listGroup = GetCheckBoxGroup(),
+                KindNumber = GetRadioButtonKindNumber(),
+                TelNumber = tbTelNumber.Text,
                 Registration = dtpRegistDate.Value,
 
 
@@ -66,6 +68,10 @@ namespace AddressBook {
             }
         }
 
+        
+
+
+
 
         //更新・削除ボタンのマスク処理行う（マスク判定を含む）
         private void EnabledCheck() {
@@ -76,7 +82,9 @@ namespace AddressBook {
 
         private void Form1_Load(object sender, EventArgs e) {
 
-            EnabledCheck();
+            EnabledCheck(); //マスク処理呼び出し
+            //背景色
+            //
 
         }
 
@@ -90,8 +98,21 @@ namespace AddressBook {
             }
         }
 
+        private Person.KindNumberType GetRadioButtonKindNumber() {
 
-        
+            Person.KindNumberType selectedKindNumber = Person.KindNumberType.その他;
+
+            if (rbHome.Checked) {  //自宅にチェックがついている
+                return Person.KindNumberType.自宅;
+            }
+            if (rbMobile.Checked) {　//にチェックがついている
+                return Person.KindNumberType.携帯;
+            }
+            return selectedKindNumber;
+        }
+
+
+
 
         private List<Person.GroupType> GetCheckBoxGroup() {
 
@@ -132,8 +153,31 @@ namespace AddressBook {
             tbAddress.Text = listPerson[index].Address;
             cbCompany.Text = listPerson[index].Company;
             pbPicture.Image = listPerson[index].Picture;
-            dtpRegistDate.Value = 
+            dtpRegistDate.Value =
                 listPerson[index].Registration.Year > 1900 ? listPerson[index].Registration : DateTime.Today;
+
+            setGroupType(index); //グループを設定
+            setKindNumberType(index);　//番号種別を設定
+
+        }
+
+        private void setKindNumberType(int index) {
+            //番号種別チェック処理
+            switch (listPerson[index].KindNumber) {
+                case Person.KindNumberType.自宅:
+                    rbHome.Checked = true;
+                    break;
+                case Person.KindNumberType.携帯:
+                    rbHome.Checked = true;
+                    break;
+                case Person.KindNumberType.その他:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void setGroupType(int index) {
 
             groupCheckBoxAllClear(); //グループチェックボックスを一旦初期化
 

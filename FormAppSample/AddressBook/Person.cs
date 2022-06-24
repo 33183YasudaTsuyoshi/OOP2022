@@ -31,11 +31,11 @@ namespace AddressBook {
         public List<GroupType> listGroup { get; set; }
 
         [System.ComponentModel.DisplayName("番号種別")]
-        public string KindNumber { get; set; }
+        public KindNumberType KindNumber { get; set; }
         [System.ComponentModel.DisplayName("電話番号")]
         public string TelNumber { get; set; }
         [System.ComponentModel.DisplayName("登録日")]
-        public DateTime Registration { get; set;}
+        public DateTime Registration { get; set; }
         [System.ComponentModel.DisplayName("画像")]
         public Image Picture { get; set; }
 
@@ -49,8 +49,11 @@ namespace AddressBook {
         }
 
         public enum KindNumberType { 
+
             自宅,
             携帯,
+            その他,
+
         }
     }
 }
