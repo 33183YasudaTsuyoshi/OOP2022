@@ -14,8 +14,8 @@ namespace RssReader {
     public partial class Form1 : Form {
 
 
-        IEnumerable<string> xTitle;
-
+        IEnumerable<string> xTitle,xLink;
+        List<string> titlelist = new List<string>();
 
         public Form1() {
             InitializeComponent();
@@ -30,8 +30,8 @@ namespace RssReader {
 
                 var stream = wc.OpenRead(cbRssUrl.Text);
                 var xdoc = XDocument.Load(stream);
-                var xTitle = xdoc.Root.Descendants("item").Select(x => (string)x.Element("title"));
-
+                xTitle = xdoc.Root.Descendants("item").Select(x => (string)x.Element("title"));
+                xLink = xdoc.Root.Descendants("item").Select(x => (string)x.Element("link"));
                 foreach (var data in xTitle) {
 
                     lbRssTitle.Items.Add(data);
@@ -40,24 +40,13 @@ namespace RssReader {
             }
         }
 
-        private void lbRssTitle_MouseClick(object sender, MouseEventArgs e) {
+        private void lbRssTitle_Click(object sender, EventArgs e) {
 
-            using (var wc = new WebClient()) {
+            int index = lbRssTitle.SelectedIndex;//選択した行のインデックスを取得（０～）
+            var url = xLink.ElementAt(index);
+            wbBrowser.Navigate(url);
 
-                var stream = wc.OpenRead(cbRssUrl.Text);
-                var xdoc = XDocument.Load(stream);
-                var xNews = xdoc.Root.Descendants("item").Select(x => (string)x.Element("title"));
 
-                foreach (var data in xNews) {
-
-                    lbRssTitle.Items.Add(data);
-
-                }
-                List<string> titlelist = new List<string>();
-
-                int index = lbRssTitle.SelectedIndex;  //選択した行のインデックスを取得（０～）
-                //titlelist.Add(index);
-            }
-        }
+        } 
     }
 }
