@@ -120,5 +120,9 @@ namespace AddressBook {
             tbSesrchName.Text = null;
             this.addressTableTableAdapter.Fill(this.infosys202218DataSet.AddressTable);
         }
+
+        private void バージョン情報ToolStripMenuItem_Click(object sender, EventArgs e) {
+            new Version().ShowDialog();
+        }
     }
 }
