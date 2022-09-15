@@ -144,7 +144,6 @@ namespace CarReportSystem {
             }
             EnabledCheck(); //マスク処理呼び出し*/
         }
-
         /*private void btSaveReport_Click(object sender, EventArgs e) {
             if (sfdCarReportSave.ShowDialog() == DialogResult.OK) {
                 try {
