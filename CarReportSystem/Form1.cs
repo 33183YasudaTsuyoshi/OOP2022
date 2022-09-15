@@ -18,7 +18,7 @@ namespace CarReportSystem {
         Settings settings = Settings.getInstance(); //シングルトン
 
         //カーレポート管理用リスト
-        BindingList<CarReport> listCarReports = new BindingList<CarReport>();
+        //BindingList<CarReport> listCarReports = new BindingList<CarReport>();
 
         int mode = 0;
         public Form1() {
@@ -51,6 +51,9 @@ namespace CarReportSystem {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+
+            
+
             try {
                 //設定ファイルを逆シリアル化（P307）して背景の色を設定
                 using (var reader = XmlReader.Create("settings.xml")) {
@@ -88,10 +91,6 @@ namespace CarReportSystem {
             return "その他";
         }
 
-        private void EnabledCheck() {
-         //   btModifyReport.Enabled = btDeleteReport.Enabled = listCarReports.Count() > 0 ? true : false;
-
-        }
         //コンボボックスに記録者を登録する（重複なし）
         private void setCbAuther(string company) {
             if (!cbAuther.Items.Contains(company)) {
@@ -146,7 +145,7 @@ namespace CarReportSystem {
             EnabledCheck(); //マスク処理呼び出し*/
         }
 
-        private void btSaveReport_Click(object sender, EventArgs e) {
+        /*private void btSaveReport_Click(object sender, EventArgs e) {
             if (sfdCarReportSave.ShowDialog() == DialogResult.OK) {
                 try {
                     //バイナリ形式でシリアル化
@@ -159,7 +158,7 @@ namespace CarReportSystem {
                     MessageBox.Show(ex.Message);
                 }
             }
-        }
+        }*/
 
         private void carReportDBBindingNavigatorSaveItem_Click(object sender, EventArgs e) {
             this.Validate();
@@ -221,6 +220,8 @@ namespace CarReportSystem {
         private void データベース接続ToolStripMenuItem_Click(object sender, EventArgs e) {
             // TODO: このコード行はデータを 'infosys202218DataSet.AddressTable' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
             this.carReportDBTableAdapter.Fill(this.infosys202218DataSet.CarReportDB);
+
+            EnabledCheck(); 
         }
 
         //エラー回避
@@ -289,6 +290,19 @@ namespace CarReportSystem {
             this.Validate();
             this.carReportDBDataGridView.EndEdit();
             this.tableAdapterManager.UpdateAll(this.infosys202218DataSet);
+        }
+
+        private void EnabledCheck() {
+
+            if (carReportDBDataGridView.CurrentRow == null) {
+                btModifyReport.Enabled = false;
+                btDeleteReport.Enabled = false;
+                btSave.Enabled = false;
+            } else {
+                btModifyReport.Enabled = true;
+                btDeleteReport.Enabled = true;
+                btSave.Enabled = true;
+            }
         }
     }
 }
