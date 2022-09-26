@@ -11,13 +11,13 @@ namespace SampleEntityFramework.Models {
         // 別のデータベースとデータベース プロバイダーまたはそのいずれかを対象とする場合は、
         // アプリケーション構成ファイルで 'BooksDbContext' 接続文字列を変更してください。
         public BooksDbContext()
-            : base("name=BooksDbConnectionStrings") {
+            : base("name=SampleEntityFramework.Properties.Settings.BooksDbConnectionStrings") {
         }
 
         // モデルに含めるエンティティ型ごとに DbSet を追加します。Code First モデルの構成および使用の
         // 詳細については、http://go.microsoft.com/fwlink/?LinkId=390109 を参照してください。
         public DbSet<Book> Books { get; set; }
-        public DbSet<Action> Actions { get; set; }
+        public DbSet<Author> Authors { get; set; }
         
     }
 
