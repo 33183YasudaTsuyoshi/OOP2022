@@ -8,16 +8,39 @@ using System.Threading.Tasks;
 namespace SampleEntityFramework {
     class Program {
         static void Main(string[] args) {
-            //InsertBooks();
 
-            AddAuthors();
-            AddBooks();
+            //InsertBooks(); 
+            //AddAuthors();
+            //AddBooks();
+
+            /*var books = Exercise_02();
+            foreach (var book in books) {
+                Console.WriteLine($"{book.Title}{book.PublishedYear}{book.Author.Name}");
+            }*/
+
+            /*var books = Exercise_03();
+            foreach (var book in books) {
+                Console.WriteLine(book.Title);
+            }*/
+
+            /*var books = Exercise_04();
+            foreach (var book in books) {
+                Console.WriteLine(book.PublishedYear);
+            }*/
+
+            var authers = Exercise_05_1();
+            foreach (var auther in authers) {
+                Console.WriteLine($"{auther.Name} {auther.Birthday.ToString("yyyy/MM")}");
+                var books = Exercise_05_2(auther.Name);
+                foreach (var book in books) {
+                    Console.WriteLine($"  {book.Title} {book.PublishedYear}");
+                }
+                Console.WriteLine();
+            }
 
             /*var books = GetBooks();
             foreach (var book in books) {
-
-                Console.WriteLine($"{book.Title}{book.PublishedYear}");
-                
+                Console.WriteLine($"{book.Title}{book.PublishedYear}{book.Author.Name}");
             }*/
         }
 
@@ -48,7 +71,7 @@ namespace SampleEntityFramework {
                 db.Books.Add(book2);
 
                 var book3 = new Book {
-                    Title = "   こころ",
+                    Title = "こころ",
                     PublishedYear = 1991,
                     Author = new Author {
                         Birthday = new DateTime(1867, 2, 9),
@@ -95,15 +118,37 @@ namespace SampleEntityFramework {
             }
         }
 
-        static IEnumerable<Book> GetAllBooks() { 
-            using(var db = new BooksDbContext()){
-                return db.Books.ToList();
+        static IEnumerable<Book> Exercise_03() {
+            using (var db = new BooksDbContext()) {
+                return db.Books
+                    .Where(book => book.Title.Length == db.Books.Max(x => x.Title.Length))
+                    .ToList();
             }
         }
 
-        static IEnumerable<Book> GetBooks() {
+        static IEnumerable<Book> Exercise_02() {
             using (var db = new BooksDbContext()) {
-                return db.Books.Where(book => book.Author.Name.StartsWith("夏目")).ToList();
+                return db.Books.Include(nameof(Author)).ToList();
+            }
+        }
+
+        static IEnumerable<Book> Exercise_04() {
+            using (var db = new BooksDbContext()) {
+                return db.Books.OrderBy(book => book.PublishedYear).Take(3).ToList();
+            }
+        }
+
+        static IEnumerable<Author> Exercise_05_1() {
+            using (var db = new BooksDbContext()) {
+                return db.Authors.OrderByDescending(a => a.Birthday).ToList();
+            }
+        }
+
+        static IEnumerable<Book> Exercise_05_2(string name) {
+            using (var db = new BooksDbContext()) {
+                return db.Books
+                    .Where(book => book.Author.Name == name)
+                    .ToList();
             }
         }
 
