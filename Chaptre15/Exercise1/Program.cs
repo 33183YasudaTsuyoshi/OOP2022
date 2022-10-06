@@ -28,8 +28,8 @@ namespace Exercise1 {
         }
         
         private static void Exercise1_2() {
-            var books = Library.Books.Max(b => b.Price);
-            var book = Library.Books.Where(b => b.Price == books);
+            var max = Library.Books.Max(b => b.Price);
+            var book = Library.Books.Where(b => b.Price == max);
             foreach (var b in book) {
                 Console.WriteLine(b);
             }
@@ -45,6 +45,23 @@ namespace Exercise1 {
         }
 
         private static void Exercise1_4() {
+            var books = Library.Books.OrderByDescending(b => b.PublishedYear)
+                               .ThenByDescending(b => b.Price)
+                               .Join(Library.Categories,
+                                    book => book.CategoryId,
+                                    category => category.Id,
+                                    (book, category) => new {
+                                        Titile = book.Title,
+                                        Category = category.Name,
+                                        PublishedYear = book.PublishedYear,
+                                        Price = book.Price,
+                                        Title = book.Title,
+                                        CategoryName = category.Name
+                                    }
+                                );
+            foreach (var book in books) {
+                Console.WriteLine($"{book.PublishedYear}年　{book.Price}円　{book.Title}({book.CategoryName})");
+            }
         }
 
         private static void Exercise1_5() {
