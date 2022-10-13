@@ -23,7 +23,6 @@ namespace Exercise1 {
             Exercise1_7();
             Console.WriteLine();
             Exercise1_8();
-
             Console.ReadLine();
         }
         
@@ -77,12 +76,56 @@ namespace Exercise1 {
         }
 
         private static void Exercise1_6() {
+            var query = Library.Books
+                               .Join(Library.Categories,
+                                    book => book.CategoryId,
+                                    category => category.Id,
+                                    (book, category) => new {
+                                        book.Title,
+                                        book.PublishedYear,
+                                        book.Price,
+                                        CategoryName = category.Name
+                                    })
+                                .GroupBy(x => x.CategoryName)
+                                .OrderBy(x => x.Key);
+
+            foreach (var group in query) {
+                Console.WriteLine("#{0}",group.Key);
+                foreach (var item in group) {
+                    Console.WriteLine(" {0}",item.Title);
+                }
+            }
         }
 
         private static void Exercise1_7() {
+            var categoryId = Library.Categories.Single(c => c.Name == "Development").Id;
+            var groups = Library.Books
+                                .Where(b => b.CategoryId == categoryId)
+                                .GroupBy(b => b.PublishedYear)
+                                .OrderBy(b => b.Key);
+                
+            foreach (var group in groups) {
+                Console.WriteLine("#{0}", group.Key);
+                foreach (var book in group) {
+                    Console.WriteLine(" {0}", book.Title);
+                }
+            }
         }
 
         private static void Exercise1_8() {
+            var query = Library.Categories
+                               .GroupJoin(Library.Books,
+                                    c => c.Id,
+                                    b => b.CategoryId,
+                                    (c, b) => new { 
+                                        CategoryName = c.Name,
+                                        Count = b.Count()
+                                    })
+                               .Where(x => x.Count >= 4);
+
+            foreach (var category in query) {
+                Console.WriteLine(category.CategoryName);
+            }
         }
     }
 }
