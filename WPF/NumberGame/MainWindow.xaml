@@ -1,0 +1,54 @@
+﻿<Window x:Class="NumberGame.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NumberGame"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="400" Loaded="Window_Loaded">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Column="0" Grid.Row="0" Width="80" Height="80" Content="1" Click="Button_Click" Background="#FF322BB9"/>
+            <Button Grid.Column="1" Grid.Row="0" Width="80" Height="80" Content="2" Click="Button_Click" Background="#FFBD5151"/>
+            <Button Grid.Column="2" Grid.Row="0" Width="80" Height="80" Content="3" Click="Button_Click" Background="#FF25AA37"/>
+            <Button Grid.Column="3" Grid.Row="0" Width="80" Height="80" Content="4" Click="Button_Click" Background="#FFBB7443"/>
+            <Button Grid.Column="4" Grid.Row="0" Width="80" Height="80" Content="5" Click="Button_Click" Background="#FFE81010"/>
+            <Button Grid.Column="0" Grid.Row="1" Width="80" Height="80" Content="6" Click="Button_Click" Background="#FF198178"/>
+            <Button Grid.Column="1" Grid.Row="1" Width="80" Height="80" Content="7" Click="Button_Click" Background="#FF879E8F"/>
+            <Button Grid.Column="2" Grid.Row="1" Width="80" Height="80" Content="8" Click="Button_Click" Background="#FF69C587"/>
+            <Button Grid.Column="3" Grid.Row="1" Width="80" Height="80" Content="9" Click="Button_Click" Background="#FFB0B6B2"/>
+            <Button Grid.Column="4" Grid.Row="1" Width="80" Height="80" Content="10" Click="Button_Click" Background="#FFF14239"/>
+            <Button Grid.Column="0" Grid.Row="2" Width="80" Height="80" Content="11" Click="Button_Click" Background="#FF34A423"/>
+            <Button Grid.Column="1" Grid.Row="2" Width="80" Height="80" Content="12" Click="Button_Click" Background="#FFD1D123"/>
+            <Button Grid.Column="2" Grid.Row="2" Width="80" Height="80" Content="13" Click="Button_Click" Background="#FF27B89D"/>
+            <Button Grid.Column="3" Grid.Row="2" Width="80" Height="80" Content="14" Click="Button_Click" Background="#FFDE1111"/>
+            <Button Grid.Column="4" Grid.Row="2" Width="80" Height="80" Content="15" Click="Button_Click" Background="#FFBF4825"/>
+            <Button Grid.Column="0" Grid.Row="3" Width="80" Height="80" Content="16" Click="Button_Click" Background="#FFCBB843"/>
+            <Button Grid.Column="1" Grid.Row="3" Width="80" Height="80" Content="17" Click="Button_Click" Background="#FFCFB71E"/>
+            <Button Grid.Column="2" Grid.Row="3" Width="80" Height="80" Content="18" Click="Button_Click" Background="#FF87D3DA"/>
+            <Button Grid.Column="3" Grid.Row="3" Width="80" Height="80" Content="19" Click="Button_Click" Background="#FF2A3687"/>
+            <Button Grid.Column="4" Grid.Row="3" Width="80" Height="80" Content="20" Click="Button_Click" Background="#FFBEC7A1"/>
+            <Button Grid.Column="0" Grid.Row="4" Width="80" Height="80" Content="21" Click="Button_Click" Background="#FFA03131"/>
+            <Button Grid.Column="1" Grid.Row="4" Width="80" Height="80" Content="22" Click="Button_Click" Background="#FF8EA279"/>
+            <Button Grid.Column="2" Grid.Row="4" Width="80" Height="80" Content="23" Click="Button_Click" Background="#FFB9A780"/>
+            <Button Grid.Column="3" Grid.Row="4" Width="80" Height="80" Content="24" Click="Button_Click" Background="#FFA68236"/>
+            <Button Grid.Column="4" Grid.Row="4" Width="80" Height="80" Content="25" Click="Button_Click" Background="#FFBACB0D"/>
+        </Grid>
+   
+        <TextBlock x:Name="infoDisp" Background="White" Height="28"/>
+    </StackPanel>
+</Window>
