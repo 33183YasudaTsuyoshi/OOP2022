@@ -304,16 +304,17 @@ namespace CarReportSystem {
             }
         }
 
-        private void btAddPerson_Click(object sender, EventArgs e) {
-
-        }
-
-        private void 開くToolStripMenuItem_Click(object sender, EventArgs e) {
-
-        }
-
         private void データベース接続ToolStripMenuItem_Click_1(object sender, EventArgs e) {
             this.carReportDBTableAdapter.Fill(this.infosys202218DataSet.CarReportDB);
+        }
+
+        private void btAdd_Click(object sender, EventArgs e) {
+            carReportDBDataGridView.CurrentRow.Cells[1].Value = dtpDate.Value;
+            carReportDBDataGridView.CurrentRow.Cells[2].Value = cbAuther.Text;
+            carReportDBDataGridView.CurrentRow.Cells[3].Value = GetRadioButtonMaker();
+            carReportDBDataGridView.CurrentRow.Cells[4].Value = cbCarName.Text;
+            carReportDBDataGridView.CurrentRow.Cells[5].Value = tbReport.Text;
+            carReportDBDataGridView.CurrentRow.Cells[6].Value = pbPicture.Image;
         }
     }
 }
