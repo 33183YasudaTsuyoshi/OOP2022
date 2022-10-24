@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:CollarCheck"
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="500">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <Grid>
+            
+        </Grid>
+    </StackPanel>
 </Window>
