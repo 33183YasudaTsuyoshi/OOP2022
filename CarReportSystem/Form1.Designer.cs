@@ -67,10 +67,6 @@ namespace CarReportSystem
             this.データベース接続ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cdColorSelect = new System.Windows.Forms.ColorDialog();
             this.carReportDBDataGridView = new System.Windows.Forms.DataGridView();
-            this.btNameSearch = new System.Windows.Forms.Button();
-            this.tbSesrchName = new System.Windows.Forms.TextBox();
-            this.tbNameDelete = new System.Windows.Forms.Button();
-            this.tbSave = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +76,9 @@ namespace CarReportSystem
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.carReportDBBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.infosys202218DataSet = new CarReportSystem.infosys202218DataSet();
+            this.btNameSearch = new System.Windows.Forms.Button();
+            this.tbSesrchName = new System.Windows.Forms.TextBox();
+            this.tbNameDelete = new System.Windows.Forms.Button();
             this.carReportDBTableAdapter = new CarReportSystem.infosys202218DataSetTableAdapters.CarReportDBTableAdapter();
             this.tableAdapterManager = new CarReportSystem.infosys202218DataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).BeginInit();
@@ -278,7 +277,7 @@ namespace CarReportSystem
             // 
             // btModifyReport
             // 
-            this.btModifyReport.Location = new System.Drawing.Point(437, 311);
+            this.btModifyReport.Location = new System.Drawing.Point(437, 298);
             this.btModifyReport.Name = "btModifyReport";
             this.btModifyReport.Size = new System.Drawing.Size(105, 34);
             this.btModifyReport.TabIndex = 5;
@@ -288,7 +287,7 @@ namespace CarReportSystem
             // 
             // btDeleteReport
             // 
-            this.btDeleteReport.Location = new System.Drawing.Point(575, 271);
+            this.btDeleteReport.Location = new System.Drawing.Point(575, 298);
             this.btDeleteReport.Name = "btDeleteReport";
             this.btDeleteReport.Size = new System.Drawing.Size(99, 34);
             this.btDeleteReport.TabIndex = 5;
@@ -347,44 +346,44 @@ namespace CarReportSystem
             // 開くToolStripMenuItem
             // 
             this.開くToolStripMenuItem.Name = "開くToolStripMenuItem";
-            this.開くToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.開くToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.開くToolStripMenuItem.Text = "開く...";
             this.開くToolStripMenuItem.Click += new System.EventHandler(this.開くToolStripMenuItem_Click);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.保存ToolStripMenuItem.Text = "保存...";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(116, 6);
             // 
             // 設定ToolStripMenuItem
             // 
             this.設定ToolStripMenuItem.Name = "設定ToolStripMenuItem";
-            this.設定ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.設定ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.設定ToolStripMenuItem.Text = "色設定...";
             this.設定ToolStripMenuItem.Click += new System.EventHandler(this.設定ToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(116, 6);
             // 
             // 終了ToolStripMenuItem
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.終了ToolStripMenuItem.Text = "終了";
             this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
             // 
             // データベース接続ToolStripMenuItem
             // 
             this.データベース接続ToolStripMenuItem.Name = "データベース接続ToolStripMenuItem";
-            this.データベース接続ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.データベース接続ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.データベース接続ToolStripMenuItem.Text = "接続";
             this.データベース接続ToolStripMenuItem.Click += new System.EventHandler(this.データベース接続ToolStripMenuItem_Click_1);
             // 
@@ -411,44 +410,6 @@ namespace CarReportSystem
             this.carReportDBDataGridView.TabIndex = 30;
             this.carReportDBDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.carReportDBDataGridView_DataError);
             this.carReportDBDataGridView.Click += new System.EventHandler(this.carReportDBDataGridView_Click);
-            // 
-            // btNameSearch
-            // 
-            this.btNameSearch.Location = new System.Drawing.Point(12, 307);
-            this.btNameSearch.Name = "btNameSearch";
-            this.btNameSearch.Size = new System.Drawing.Size(63, 25);
-            this.btNameSearch.TabIndex = 31;
-            this.btNameSearch.Text = "名前検索";
-            this.btNameSearch.UseVisualStyleBackColor = true;
-            this.btNameSearch.Click += new System.EventHandler(this.btNameSearch_Click);
-            // 
-            // tbSesrchName
-            // 
-            this.tbSesrchName.Location = new System.Drawing.Point(77, 307);
-            this.tbSesrchName.Multiline = true;
-            this.tbSesrchName.Name = "tbSesrchName";
-            this.tbSesrchName.Size = new System.Drawing.Size(270, 25);
-            this.tbSesrchName.TabIndex = 32;
-            // 
-            // tbNameDelete
-            // 
-            this.tbNameDelete.Location = new System.Drawing.Point(353, 307);
-            this.tbNameDelete.Name = "tbNameDelete";
-            this.tbNameDelete.Size = new System.Drawing.Size(64, 25);
-            this.tbNameDelete.TabIndex = 33;
-            this.tbNameDelete.Text = "名前クリア";
-            this.tbNameDelete.UseVisualStyleBackColor = true;
-            this.tbNameDelete.Click += new System.EventHandler(this.tbNameDelete_Click);
-            // 
-            // tbSave
-            // 
-            this.tbSave.Location = new System.Drawing.Point(575, 311);
-            this.tbSave.Name = "tbSave";
-            this.tbSave.Size = new System.Drawing.Size(99, 31);
-            this.tbSave.TabIndex = 34;
-            this.tbSave.Text = "保存";
-            this.tbSave.UseVisualStyleBackColor = true;
-            this.tbSave.Click += new System.EventHandler(this.tbSave_Click);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -504,6 +465,34 @@ namespace CarReportSystem
             this.infosys202218DataSet.DataSetName = "infosys202218DataSet";
             this.infosys202218DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // btNameSearch
+            // 
+            this.btNameSearch.Location = new System.Drawing.Point(12, 307);
+            this.btNameSearch.Name = "btNameSearch";
+            this.btNameSearch.Size = new System.Drawing.Size(63, 25);
+            this.btNameSearch.TabIndex = 31;
+            this.btNameSearch.Text = "名前検索";
+            this.btNameSearch.UseVisualStyleBackColor = true;
+            this.btNameSearch.Click += new System.EventHandler(this.btNameSearch_Click);
+            // 
+            // tbSesrchName
+            // 
+            this.tbSesrchName.Location = new System.Drawing.Point(77, 307);
+            this.tbSesrchName.Multiline = true;
+            this.tbSesrchName.Name = "tbSesrchName";
+            this.tbSesrchName.Size = new System.Drawing.Size(270, 25);
+            this.tbSesrchName.TabIndex = 32;
+            // 
+            // tbNameDelete
+            // 
+            this.tbNameDelete.Location = new System.Drawing.Point(353, 307);
+            this.tbNameDelete.Name = "tbNameDelete";
+            this.tbNameDelete.Size = new System.Drawing.Size(64, 25);
+            this.tbNameDelete.TabIndex = 33;
+            this.tbNameDelete.Text = "名前クリア";
+            this.tbNameDelete.UseVisualStyleBackColor = true;
+            this.tbNameDelete.Click += new System.EventHandler(this.tbNameDelete_Click);
+            // 
             // carReportDBTableAdapter
             // 
             this.carReportDBTableAdapter.ClearBeforeFill = true;
@@ -519,7 +508,6 @@ namespace CarReportSystem
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 576);
-            this.Controls.Add(this.tbSave);
             this.Controls.Add(this.tbNameDelete);
             this.Controls.Add(this.tbSesrchName);
             this.Controls.Add(this.btNameSearch);
@@ -610,7 +598,6 @@ namespace CarReportSystem
         private System.Windows.Forms.Button btNameSearch;
         private System.Windows.Forms.TextBox tbSesrchName;
         private System.Windows.Forms.Button tbNameDelete;
-        private System.Windows.Forms.Button tbSave;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
