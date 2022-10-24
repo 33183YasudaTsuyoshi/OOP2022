@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CarReport.cs" />
+    <Compile Include="infosys202218DataSet.cs">
+      <DependentUpon>infosys202218DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="infosys202218DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

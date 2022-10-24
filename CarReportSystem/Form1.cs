@@ -272,7 +272,7 @@ namespace CarReportSystem {
         }
 
         private void btNameSearch_Click(object sender, EventArgs e) {
-            carReportDBTableAdapter.FillByName(infosys202218DataSet.CarReportDB, tbSesrchName.Text);
+          //  carReportDBTableAdapter.FillByName(infosys202218DataSet.CarReportDB, tbSesrchName.Text);
         }
 
         private void tbNameDelete_Click(object sender, EventArgs e) {
@@ -296,16 +296,24 @@ namespace CarReportSystem {
             if (carReportDBDataGridView.CurrentRow == null) {
                 btModifyReport.Enabled = false;
                 btDeleteReport.Enabled = false;
-                btSave.Enabled = false;
+          //      btSave.Enabled = false;
             } else {
                 btModifyReport.Enabled = true;
                 btDeleteReport.Enabled = true;
-                btSave.Enabled = true;
+            //    btSave.Enabled = true;
             }
         }
 
         private void btAddPerson_Click(object sender, EventArgs e) {
 
+        }
+
+        private void 開くToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void データベース接続ToolStripMenuItem_Click_1(object sender, EventArgs e) {
+            this.carReportDBTableAdapter.Fill(this.infosys202218DataSet.CarReportDB);
         }
     }
 }
