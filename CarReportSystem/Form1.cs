@@ -315,6 +315,11 @@ namespace CarReportSystem {
             carReportDBDataGridView.CurrentRow.Cells[4].Value = cbCarName.Text;
             carReportDBDataGridView.CurrentRow.Cells[5].Value = tbReport.Text;
             carReportDBDataGridView.CurrentRow.Cells[6].Value = pbPicture.Image;
+
+            //データセットの中をデータベースへ反映（保存）
+            this.Validate();
+            this.carReportDBBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.infosys202218DataSet);
         }
     }
 }
