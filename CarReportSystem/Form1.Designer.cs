@@ -271,13 +271,13 @@ namespace CarReportSystem
             // 
             // btAddReport
             // 
-            this.btAddReport.Location = new System.Drawing.Point(437, 271);
-            this.btAddReport.Name = "btAddReport";
-            this.btAddReport.Size = new System.Drawing.Size(105, 34);
-            this.btAddReport.TabIndex = 5;
-            this.btAddReport.Text = "追加";
-            this.btAddReport.UseVisualStyleBackColor = true;
-            this.btAddReport.Click += new System.EventHandler(this.btAddReport_Click);
+            this.btAddPerson.Location = new System.Drawing.Point(423, 267);
+            this.btAddPerson.Name = "btAddPerson";
+            this.btAddPerson.Size = new System.Drawing.Size(75, 34);
+            this.btAddPerson.TabIndex = 5;
+            this.btAddPerson.Text = "追加";
+            this.btAddPerson.UseVisualStyleBackColor = true;
+            this.btAddPerson.Click += new System.EventHandler(this.btAddPerson_Click);
             // 
             // btModifyReport
             // 

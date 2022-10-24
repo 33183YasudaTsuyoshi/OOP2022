@@ -303,5 +303,9 @@ namespace CarReportSystem {
                 btSave.Enabled = true;
             }
         }
+
+        private void btAddPerson_Click(object sender, EventArgs e) {
+
+        }
     }
 }
