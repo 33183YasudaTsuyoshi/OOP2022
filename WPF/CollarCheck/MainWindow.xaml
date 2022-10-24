@@ -6,9 +6,30 @@
         xmlns:local="clr-namespace:CollarCheck"
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="500">
-    <StackPanel>
-        <Grid>
-            
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
         </Grid>
-    </StackPanel>
+        
+
+    </Grid>
 </Window>
