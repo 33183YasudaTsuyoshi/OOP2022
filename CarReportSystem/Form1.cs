@@ -14,6 +14,7 @@ using System.Xml.Serialization;
 
 namespace CarReportSystem {
     public partial class Form1 : Form {
+
         //設定情報保存用オブジェクト 
         Settings settings = Settings.getInstance(); //シングルトン
 
@@ -24,8 +25,6 @@ namespace CarReportSystem {
         public Form1() {
             InitializeComponent();
         }
-
-        
 
         private void 設定ToolStripMenuItem_Click(object sender, EventArgs e) {
             //色設定ダイアログの表示
@@ -52,8 +51,6 @@ namespace CarReportSystem {
 
         private void Form1_Load(object sender, EventArgs e) {
 
-            
-
             try {
                 //設定ファイルを逆シリアル化（P307）して背景の色を設定
                 using (var reader = XmlReader.Create("settings.xml")) {
@@ -63,13 +60,10 @@ namespace CarReportSystem {
                 }
             }
             catch (Exception) {
-
             }
-
             EnabledCheck(); //マスク処理呼び出し
         }
 
-        
         //設定されているメーカーを返す
         private string GetRadioButtonMaker() {
             if (rbToyota.Checked) {
@@ -185,9 +179,12 @@ namespace CarReportSystem {
 
         // バイト配列をImageオブジェクトに変換
         public static Image ByteArrayToImage(byte[] b) {
+
+
             ImageConverter imgconv = new ImageConverter();
             Image img = (Image)imgconv.ConvertFrom(b);
             return img;
+
         }
 
         // Imageオブジェクトをバイト配列に変換
@@ -196,6 +193,8 @@ namespace CarReportSystem {
             byte[] b = (byte[])imgconv.ConvertTo(img, typeof(byte[]));
             return b;
         }
+
+       
 
         private void btModifyReport_Click(object sender, EventArgs e) {
             carReportDBDataGridView.CurrentRow.Cells[1].Value = dtpDate.Value;
@@ -213,7 +212,7 @@ namespace CarReportSystem {
 
         private void btDeleteReport_Click(object sender, EventArgs e) {
             carReportDBBindingSource.RemoveAt(carReportDBDataGridView.CurrentRow.Index);
-        
+            EnabledCheck();
         }
 
         private void データベース接続ToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -240,11 +239,17 @@ namespace CarReportSystem {
                 tbReport.Text = carReportDBDataGridView.CurrentRow.Cells[5].Value.ToString();
 
                 //画像表示処理  DBNullじゃなかったら真
-                if (!(carReportDBDataGridView.CurrentRow.Cells[6].Value is DBNull)) {
-                    pbPicture.Image = ByteArrayToImage((byte[])carReportDBDataGridView.CurrentRow.Cells[6].Value);
-                } else {
-                    pbPicture.Image = null;
+                try {
+                    if (!(carReportDBDataGridView.CurrentRow.Cells[6].Value is DBNull)) {
+                        pbPicture.Image = ByteArrayToImage((byte[])carReportDBDataGridView.CurrentRow.Cells[6].Value);
+                    } else {
+                        pbPicture.Image = null;
+                    }
                 }
+                catch (Exception) {
+
+                }
+
             }
         }
 
@@ -272,7 +277,7 @@ namespace CarReportSystem {
         }
 
         private void btNameSearch_Click(object sender, EventArgs e) {
-          //  carReportDBTableAdapter.FillByName(infosys202218DataSet.CarReportDB, tbSesrchName.Text);
+          //carReportDBTableAdapter.FillByName(infosys202218DataSet.CarReportDB, tbSesrchName.Text);
         }
 
         private void tbNameDelete_Click(object sender, EventArgs e) {
@@ -296,27 +301,34 @@ namespace CarReportSystem {
             if (carReportDBDataGridView.CurrentRow == null) {
                 btModifyReport.Enabled = false;
                 btDeleteReport.Enabled = false;
-          //      btSave.Enabled = false;
+                
             } else {
                 btModifyReport.Enabled = true;
                 btDeleteReport.Enabled = true;
-            //    btSave.Enabled = true;
+                  
             }
         }
 
         private void データベース接続ToolStripMenuItem_Click_1(object sender, EventArgs e) {
             this.carReportDBTableAdapter.Fill(this.infosys202218DataSet.CarReportDB);
+            EnabledCheck();
         }
 
         private void btAdd_Click(object sender, EventArgs e) {
-            carReportDBDataGridView.CurrentRow.Cells[1].Value = dtpDate.Value;
-            carReportDBDataGridView.CurrentRow.Cells[2].Value = cbAuther.Text;
-            carReportDBDataGridView.CurrentRow.Cells[3].Value = GetRadioButtonMaker();
-            carReportDBDataGridView.CurrentRow.Cells[4].Value = cbCarName.Text;
-            carReportDBDataGridView.CurrentRow.Cells[5].Value = tbReport.Text;
-            carReportDBDataGridView.CurrentRow.Cells[6].Value = pbPicture.Image;
+            DataRow newRow = infosys202218DataSet.CarReportDB.NewRow();
+            newRow[1] = dtpDate.Text;
+            newRow[2] = cbAuther.Text;
+            newRow[3] = GetRadioButtonMaker();
+            newRow[4] = cbCarName.Text;
+            newRow[5] = tbReport.Text;
+            newRow[6] = ImageToByteArray(pbPicture.Image);
+            //データセットへ新しいレコードを追加
+            infosys202218DataSet.CarReportDB.Rows.Add(newRow);
+            //データベース更新
+            this.carReportDBTableAdapter.Update(this.infosys202218DataSet.CarReportDB);
+        }
 
-            //データセットの中をデータベースへ反映（保存）
+        private void 保存ToolStripMenuItem_Click(object sender, EventArgs e) {
             this.Validate();
             this.carReportDBBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.infosys202218DataSet);
