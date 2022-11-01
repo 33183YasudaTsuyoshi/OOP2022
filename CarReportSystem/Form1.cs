@@ -157,7 +157,6 @@ namespace CarReportSystem {
             this.Validate();
             this.carReportDBBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.infosys202218DataSet);
-
         }
 
         private void btAddReport_Click(object sender, EventArgs e) {
