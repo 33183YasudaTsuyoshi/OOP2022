@@ -19,6 +19,9 @@ namespace CollarCheck {
     /// MainWindow.xaml の相互作用ロジック
     /// </summary>
     public partial class MainWindow : Window {
+
+        MyColor myColor = new MyColor();
+
         public MainWindow() {
             InitializeComponent();
             DataContext = GetColorList();
@@ -37,14 +40,13 @@ namespace CollarCheck {
             setColor();
         }
 
-        
-
         //テキストボックスの値を元に色を設定
         private void setColor() {
             var r = byte.Parse(rValue.Text);
             var g = byte.Parse(gValue.Text);
             var b = byte.Parse(bValue.Text);
             colorArea.Background = new SolidColorBrush(Color.FromRgb(r, g, b));
+            
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
@@ -61,7 +63,7 @@ namespace CollarCheck {
 
         }
 
-        private void Window_Loaded_1(object sender, RoutedEventArgs e) {
+        private void Window_Loaded(object sender, RoutedEventArgs e) {
             setColor(); //起動時に初期状態の設定値（R:0 G:0 B:0）から色を設定
         }
     }
