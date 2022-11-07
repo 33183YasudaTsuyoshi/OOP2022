@@ -61,6 +61,10 @@ namespace CollarCheck {
 
         private void stockButton_Click(object sender, RoutedEventArgs e) {
 
+
+
+            stockList.Items.Add("R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
