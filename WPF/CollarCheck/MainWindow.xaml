@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CollarCheck"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="500" Loaded="Window_Loaded">
+        Title="MainWindow" Height="300" Width="500" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -25,7 +25,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*"/> 
+                <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -66,8 +66,9 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="stockButton" Grid.Row="0"  Content="STOCK" FontSize="20" Margin="10,5" Click="stockButton_Click"/>
+            <Button x:Name="stockButton" Grid.Row="0"  Content="STOCK" FontSize="20" Margin="10,5,83,10" Click="stockButton_Click"/>
             <ListBox x:Name="stockList" Grid.Row="1" Margin="10" SelectionChanged="stockList_SelectionChanged"/>
+            <Button Content="DELETE" HorizontalAlignment="Left" Margin="86,5,0,0" VerticalAlignment="Top" Width="68" Height="30" FontSize="20" Click="deleteButton_Click"/>
         </Grid>
     </Grid>
 </Window>
