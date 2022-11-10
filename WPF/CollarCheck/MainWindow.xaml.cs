@@ -80,17 +80,24 @@ namespace CollarCheck {
 
         
 
-        private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {            
+        private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
+            if (stockList.SelectedIndex == -1) return;
+
             rSlider.Value = colorList[stockList.SelectedIndex].Color.R;
             gSlider.Value = colorList[stockList.SelectedIndex].Color.G;
             bSlider.Value = colorList[stockList.SelectedIndex].Color.B;
             setColor();
         }
 
+        //Deleteボタンクリック
         private void deleteButton_Click(object sender, RoutedEventArgs e) {
-            stockList.Items.RemoveAt(colorList[stockList.SelectedIndex].Color.R);
-            stockList.Items.RemoveAt(colorList[stockList.SelectedIndex].Color.G);
-            stockList.Items.RemoveAt(colorList[stockList.SelectedIndex].Color.B);
+
+            var delIndex = stockList.SelectedIndex;
+            if (delIndex == -1) return;
+
+            stockList.Items.RemoveAt(delIndex);
+            colorList.RemoveAt(delIndex);
         }
     }
 
