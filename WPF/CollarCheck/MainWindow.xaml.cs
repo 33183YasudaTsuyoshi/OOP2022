@@ -21,6 +21,7 @@ namespace CollarCheck {
     public partial class MainWindow : Window {
 
         MyColor myColor = new MyColor();
+        List<MyColor> colorList = new List<MyColor>();
 
         public MainWindow() {
             InitializeComponent();
@@ -57,18 +58,41 @@ namespace CollarCheck {
             rSlider.Value = mycolor.Color.R;
             gSlider.Value = mycolor.Color.G;
             bSlider.Value = mycolor.Color.B;
+
+            setColor();
         }
 
         private void stockButton_Click(object sender, RoutedEventArgs e) {
 
+            stockList.Items.Add(" R : " + rValue.Text + " G : " + gValue.Text + " B : " + bValue.Text);
 
+            MyColor stColor = new MyColor();
+            var r = byte.Parse(rValue.Text);
+            var g = byte.Parse(gValue.Text);
+            var b = byte.Parse(bValue.Text);
+            stColor.Color = Color.FromRgb(r ,g, b);
 
-            stockList.Items.Add("R:" + rValue.Text + "G:" + gValue.Text + "B:" + bValue.Text);
+            var colorName = ((IEnumerable<MyColor>)DataContext)
+                                .Where(c => c.Color.R == stColor.Color.R &&
+                                            c.Color.G == stColor.Color.G &&
+                                            c.Color.B == stColor.Color.B).FirstOrDefault();
+
+            stockList.Items.Add(colorName?.Name ?? "R : " + rValue.Text + "G: " + gValue.Text + "B: " + bValue.Text);
+
+            colorList.Add(stColor);
 
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             setColor(); //起動時に初期状態の設定値（R:0 G:0 B:0）から色を設定
+        }
+
+        private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
+            rSlider.Value = colorList[stockList.SelectedIndex].Color.R;
+            gSlider.Value = colorList[stockList.SelectedIndex].Color.G;
+            bSlider.Value = colorList[stockList.SelectedIndex].Color.B;
+            setColor();
         }
     }
 
