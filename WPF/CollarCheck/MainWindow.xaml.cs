@@ -78,8 +78,6 @@ namespace CollarCheck {
             colorList.Insert(0, stColor);
         }
 
-        
-
         private void stockList_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 
             if (stockList.SelectedIndex == -1) return;
