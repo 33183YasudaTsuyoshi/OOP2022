@@ -39,6 +39,8 @@ namespace WeatherApp {
             this.btSelect = new System.Windows.Forms.Button();
             this.tbCode = new System.Windows.Forms.TextBox();
             this.tbDelete = new System.Windows.Forms.Button();
+            this.pbWeather = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWeather)).BeginInit();
             this.SuspendLayout();
             // 
             // tbWeatherlnfo
@@ -178,11 +180,22 @@ namespace WeatherApp {
             this.tbDelete.UseVisualStyleBackColor = true;
             this.tbDelete.Click += new System.EventHandler(this.tbDelete_Click);
             // 
+            // pbWeather
+            // 
+            this.pbWeather.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pbWeather.Location = new System.Drawing.Point(710, 48);
+            this.pbWeather.Name = "pbWeather";
+            this.pbWeather.Size = new System.Drawing.Size(227, 156);
+            this.pbWeather.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbWeather.TabIndex = 8;
+            this.pbWeather.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(697, 586);
+            this.ClientSize = new System.Drawing.Size(949, 586);
+            this.Controls.Add(this.pbWeather);
             this.Controls.Add(this.tbDelete);
             this.Controls.Add(this.tbCode);
             this.Controls.Add(this.label4);
@@ -200,6 +213,7 @@ namespace WeatherApp {
             this.Controls.Add(this.tbWeatherlnfo);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pbWeather)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,6 +236,7 @@ namespace WeatherApp {
         private System.Windows.Forms.Button btSelect;
         private System.Windows.Forms.TextBox tbCode;
         private System.Windows.Forms.Button tbDelete;
+        private System.Windows.Forms.PictureBox pbWeather;
     }
 }
 

@@ -28,18 +28,44 @@ namespace WeatherApp {
         }
 
         public void Acquisition(string str) {
-            var wc = new WebClient() {
-                Encoding = Encoding.UTF8
-            };
-            var areaCode = tbCode.Text;
-            var dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{areaCode}.json");
 
-            var json = JsonConvert.DeserializeObject<Rootobject>(dString);
+            try {
+                var wc = new WebClient() {
+                    Encoding = Encoding.UTF8
+                };
+                var areaCode = tbCode.Text;
+                var dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{areaCode}.json");
 
-            tbPresenter.Text = json.publishingOffice;
-            tbTime.Text = json.reportDatetime.ToString();
-            tbArea.Text = json.targetArea;
-            tbWeatherlnfo.Text = json.text;
+                var json = JsonConvert.DeserializeObject<Rootobject>(dString);
+
+                tbPresenter.Text = json.publishingOffice;
+                tbTime.Text = json.reportDatetime.ToString();
+                tbArea.Text = json.targetArea;
+                tbWeatherlnfo.Text = json.text;
+                string weather = json.text;
+
+                WeatherSearch(weather);
+
+            }
+            catch (Exception) {               
+            }           
+        }
+
+        public void WeatherSearch(string weather) {
+
+
+
+            /*if (true == weather.Contains("晴")) {
+                pbWeather.ImageLocation = @"C:\Users\infosys\Pictures\Saved Pictures\cloudy.png";
+            }else if("曇")*/
+
+            //LINKを使って探す
+            //天気はURLから持ってくる　https://www.jma.go.jp/bosai/forecast/img/201.svg
+
+
+            //weather.Contains("曇");
+            //var M = weather.Contains("雨");
+
         }
 
 
@@ -378,6 +404,10 @@ namespace WeatherApp {
             }
             string str = tbCode.Text;
             Acquisition(str);
+
+
+
+            //pbWeather.ImageLocation = @"C:\Users\infosys\Pictures\Saved Pictures\sunny.jpg";
         }
 
         private void tbDelete_Click(object sender, EventArgs e) {
@@ -390,6 +420,7 @@ namespace WeatherApp {
             cbRegionCode.Text = null;
             cbRegion.Items.Clear();
             btSelect.Enabled = false;
+            pbWeather.Image = null;
         }
     }
 }
