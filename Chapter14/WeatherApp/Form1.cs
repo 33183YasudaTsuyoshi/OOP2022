@@ -18,14 +18,28 @@ namespace WeatherApp {
             RegionCode();
         }
 
+        public void RegionCode() {
+
+            List<string> codes = new List<string> { "北海道地方" ,"東北地方","関東甲信地方","東海地方","北陸地方",
+                                                    "近畿地方", "中国地方","四国地方","九州北部地方","九州南部・奄美地方", "沖縄地方" };
+            cbRegionCode.Items.AddRange(codes.ToArray());
+
+            btSelect.Enabled = false;
+        }
+
         public void Acquisition(string str) {
             var wc = new WebClient() {
                 Encoding = Encoding.UTF8
             };
             var areaCode = tbCode.Text;
-            var dString = wc.DownloadString("https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json");
+            var dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{areaCode}.json");
 
             var json = JsonConvert.DeserializeObject<Rootobject>(dString);
+
+            tbPresenter.Text = json.publishingOffice;
+            tbTime.Text = json.reportDatetime.ToString();
+            tbArea.Text = json.targetArea;
+            tbWeatherlnfo.Text = json.text;
         }
 
 
@@ -33,115 +47,101 @@ namespace WeatherApp {
 
         private void btWeatherGet_Click(object sender, EventArgs e) {
 
-            string code = cbRegionCode.Text;
+            
 
-            switch (code) {
+            if (cbRegionCode.SelectedItem != null) {
 
-                case "北海道地方":
-                    cbRegion.Items.Add("宗谷地方");
-                    cbRegion.Items.Add("上川・留萌地方");
-                    cbRegion.Items.Add("網走・北見・紋別地方");
-                    cbRegion.Items.Add("十勝地方");
-                    cbRegion.Items.Add("釧路・根室地方");
-                    cbRegion.Items.Add("胆振・日高地方");
-                    cbRegion.Items.Add("石狩・空知・後志地方");
-                    cbRegion.Items.Add("渡島・檜山地方");
-                    break;
+                btSelect.Enabled = true;
+                string code = cbRegionCode.Text;
+                switch (code) {
+                    case "北海道地方":
+                        cbRegion.Items.Add("宗谷地方");
+                        cbRegion.Items.Add("上川・留萌地方");
+                        cbRegion.Items.Add("網走・北見・紋別地方");
+                        cbRegion.Items.Add("十勝地方");
+                        cbRegion.Items.Add("釧路・根室地方");
+                        cbRegion.Items.Add("胆振・日高地方");
+                        cbRegion.Items.Add("石狩・空知・後志地方");
+                        cbRegion.Items.Add("渡島・檜山地方");
+                        break;
+                    case "東北地方":
+                        cbRegion.Items.Add("青森県");
+                        cbRegion.Items.Add("岩手県");
+                        cbRegion.Items.Add("宮城県");
+                        cbRegion.Items.Add("秋田県");
+                        cbRegion.Items.Add("山形県");
+                        cbRegion.Items.Add("福島県");
+                        break;
+                    case "関東甲信地方":
+                        cbRegion.Items.Add("茨城県");
+                        cbRegion.Items.Add("栃木県");
+                        cbRegion.Items.Add("群馬県");
+                        cbRegion.Items.Add("埼玉県");
+                        cbRegion.Items.Add("千葉県");
+                        cbRegion.Items.Add("東京都");
+                        cbRegion.Items.Add("神奈川県");
+                        cbRegion.Items.Add("山梨県");
+                        cbRegion.Items.Add("長野県");
+                        break;
+                    case "東海地方":
+                        cbRegion.Items.Add("岐阜県");
+                        cbRegion.Items.Add("静岡県");
+                        cbRegion.Items.Add("愛知県");
+                        cbRegion.Items.Add("三重県");
+                        break;
+                    case "北陸地方":
+                        cbRegion.Items.Add("新潟県");
+                        cbRegion.Items.Add("富山県");
+                        cbRegion.Items.Add("石川県");
+                        cbRegion.Items.Add("福井県");
+                        break;
+                    case "近畿地方":
+                        cbRegion.Items.Add("滋賀県");
+                        cbRegion.Items.Add("京都府");
+                        cbRegion.Items.Add("大阪府");
+                        cbRegion.Items.Add("兵庫県");
+                        cbRegion.Items.Add("奈良県");
+                        cbRegion.Items.Add("和歌山県");
+                        break;
+                    case "中国地方":
+                        cbRegion.Items.Add("鳥取県");
+                        cbRegion.Items.Add("島根県");
+                        cbRegion.Items.Add("岡山県");
+                        cbRegion.Items.Add("広島県");
+                        break;
+                    case "四国地方":
+                        cbRegion.Items.Add("徳島県");
+                        cbRegion.Items.Add("香川県");
+                        cbRegion.Items.Add("愛媛県");
+                        cbRegion.Items.Add("高知県");
+                        break;
+                    case "九州北部地方":
+                        cbRegion.Items.Add("山口県");
+                        cbRegion.Items.Add("福岡県");
+                        cbRegion.Items.Add("佐賀県");
+                        cbRegion.Items.Add("長崎県");
+                        cbRegion.Items.Add("熊本県");
+                        cbRegion.Items.Add("大分県");
+                        break;
+                    case "九州南部・奄美地方":
+                        cbRegion.Items.Add("宮崎県");
+                        cbRegion.Items.Add("奄美地方");
+                        cbRegion.Items.Add("鹿児島県");
+                        break;
+                    case "沖縄地方":
+                        cbRegion.Items.Add("沖縄本島地方");
+                        cbRegion.Items.Add("大東島地方");
+                        cbRegion.Items.Add("宮古島地方");
+                        cbRegion.Items.Add("八重山地方");
+                        break;
 
-                case "東北地方":
-                    cbRegion.Items.Add("青森県");
-                    cbRegion.Items.Add("岩手県");
-                    cbRegion.Items.Add("宮城県");
-                    cbRegion.Items.Add("秋田県");
-                    cbRegion.Items.Add("山形県");
-                    cbRegion.Items.Add("福島県");
-                    break;
-
-                case "関東甲信地方":
-                    cbRegion.Items.Add("茨城県");
-                    cbRegion.Items.Add("栃木県");
-                    cbRegion.Items.Add("群馬県");
-                    cbRegion.Items.Add("埼玉県");
-                    cbRegion.Items.Add("千葉県");
-                    cbRegion.Items.Add("東京都");
-                    cbRegion.Items.Add("神奈川県");
-                    cbRegion.Items.Add("山梨県");
-                    cbRegion.Items.Add("長野県");
-                    break;
-
-                case "東海地方":
-                    cbRegion.Items.Add("岐阜県");
-                    cbRegion.Items.Add("静岡県");
-                    cbRegion.Items.Add("愛知県");
-                    cbRegion.Items.Add("三重県");                    
-                    break;
-
-                case "北陸地方":
-                    cbRegion.Items.Add("新潟県");
-                    cbRegion.Items.Add("富山県");
-                    cbRegion.Items.Add("石川県");
-                    cbRegion.Items.Add("福井県");
-                    break;
-
-                case "近畿地方":
-                    cbRegion.Items.Add("滋賀県");
-                    cbRegion.Items.Add("京都府");
-                    cbRegion.Items.Add("大阪府");
-                    cbRegion.Items.Add("兵庫県");
-                    cbRegion.Items.Add("奈良県");
-                    cbRegion.Items.Add("和歌山県");                   
-                    break;
-
-                case "中国地方":
-                    cbRegion.Items.Add("鳥取県");
-                    cbRegion.Items.Add("島根県");
-                    cbRegion.Items.Add("岡山県");
-                    cbRegion.Items.Add("広島県");                  
-                    break;
-
-                case "四国地方":
-                    cbRegion.Items.Add("徳島県");
-                    cbRegion.Items.Add("香川県");
-                    cbRegion.Items.Add("愛媛県");
-                    cbRegion.Items.Add("高知県");
-                    break;
-                case "九州北部地方":
-                    cbRegion.Items.Add("山口県");
-                    cbRegion.Items.Add("福岡県");
-                    cbRegion.Items.Add("佐賀県");
-                    cbRegion.Items.Add("長崎県");
-                    cbRegion.Items.Add("熊本県");
-                    cbRegion.Items.Add("大分県");
-                    break;
-
-                case "九州南部・奄美地方":
-                    cbRegion.Items.Add("宮崎県");
-                    cbRegion.Items.Add("奄美地方");
-                    cbRegion.Items.Add("鹿児島県");                   
-                    break;
-
-                case "沖縄地方":
-                    cbRegion.Items.Add("沖縄本島地方");
-                    cbRegion.Items.Add("大東島地方");
-                    cbRegion.Items.Add("宮古島地方");
-                    cbRegion.Items.Add("八重山地方");                
-                    break; 
-                    
+                }
+            } else {
+                btSelect.Enabled = false;
             }
-           
-           
-
         }
 
-        public void RegionCode() {
-
-            List<string> codes = new List<string> { "北海道地方" ,"東北地方","関東甲信地方","東海地方","北陸地方",
-                                                    "近畿地方", "中国地方","四国地方","九州北部地方","九州南部・奄美地方", "沖縄地方" };
-            cbRegionCode.Items.AddRange(codes.ToArray());
-     
-        }
-
-        private void cbSelect_Click(object sender, EventArgs e) {
+        private void btSelect_Click(object sender, EventArgs e) {
             switch (cbRegion.Text) {
 
                 case "宗谷地方":
@@ -378,6 +378,18 @@ namespace WeatherApp {
             }
             string str = tbCode.Text;
             Acquisition(str);
+        }
+
+        private void tbDelete_Click(object sender, EventArgs e) {
+            tbPresenter.Text = null;
+            tbTime.Text = null;
+            tbArea.Text = null;
+            tbWeatherlnfo.Text = null;
+            cbRegion.Text = null;
+            tbCode.Text = null;
+            cbRegionCode.Text = null;
+            cbRegion.Items.Clear();
+            btSelect.Enabled = false;
         }
     }
 }

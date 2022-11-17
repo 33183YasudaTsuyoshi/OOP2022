@@ -36,8 +36,9 @@ namespace WeatherApp {
             this.tbArea = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbRegion = new System.Windows.Forms.ComboBox();
-            this.cbSelect = new System.Windows.Forms.Button();
+            this.btSelect = new System.Windows.Forms.Button();
             this.tbCode = new System.Windows.Forms.TextBox();
+            this.tbDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbWeatherlnfo
@@ -150,15 +151,15 @@ namespace WeatherApp {
             this.cbRegion.Size = new System.Drawing.Size(121, 24);
             this.cbRegion.TabIndex = 3;
             // 
-            // cbSelect
+            // btSelect
             // 
-            this.cbSelect.Location = new System.Drawing.Point(495, 274);
-            this.cbSelect.Name = "cbSelect";
-            this.cbSelect.Size = new System.Drawing.Size(72, 24);
-            this.cbSelect.TabIndex = 1;
-            this.cbSelect.Text = "選択";
-            this.cbSelect.UseVisualStyleBackColor = true;
-            this.cbSelect.Click += new System.EventHandler(this.cbSelect_Click);
+            this.btSelect.Location = new System.Drawing.Point(495, 274);
+            this.btSelect.Name = "btSelect";
+            this.btSelect.Size = new System.Drawing.Size(72, 24);
+            this.btSelect.TabIndex = 1;
+            this.btSelect.Text = "選択";
+            this.btSelect.UseVisualStyleBackColor = true;
+            this.btSelect.Click += new System.EventHandler(this.btSelect_Click);
             // 
             // tbCode
             // 
@@ -167,11 +168,22 @@ namespace WeatherApp {
             this.tbCode.Size = new System.Drawing.Size(86, 19);
             this.tbCode.TabIndex = 6;
             // 
+            // tbDelete
+            // 
+            this.tbDelete.Location = new System.Drawing.Point(71, 547);
+            this.tbDelete.Name = "tbDelete";
+            this.tbDelete.Size = new System.Drawing.Size(75, 23);
+            this.tbDelete.TabIndex = 7;
+            this.tbDelete.Text = "削除";
+            this.tbDelete.UseVisualStyleBackColor = true;
+            this.tbDelete.Click += new System.EventHandler(this.tbDelete_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(697, 586);
+            this.Controls.Add(this.tbDelete);
             this.Controls.Add(this.tbCode);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbArea);
@@ -183,7 +195,7 @@ namespace WeatherApp {
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cbSelect);
+            this.Controls.Add(this.btSelect);
             this.Controls.Add(this.btWeatherGet);
             this.Controls.Add(this.tbWeatherlnfo);
             this.Name = "Form1";
@@ -207,8 +219,9 @@ namespace WeatherApp {
         private System.Windows.Forms.TextBox tbArea;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbRegion;
-        private System.Windows.Forms.Button cbSelect;
+        private System.Windows.Forms.Button btSelect;
         private System.Windows.Forms.TextBox tbCode;
+        private System.Windows.Forms.Button tbDelete;
     }
 }
 
