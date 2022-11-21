@@ -424,4 +424,37 @@ namespace WeatherApp {
             pbWeather.Image = null;
         }
     }
+
+    /*
+     * https://qiita.com/michan06/items/48503631dd30275288f7
+
+週間予報
+https://www.jma.go.jp/bosai/forecast/data/forecast/100000.json
+
+概況（三日間）
+https://www.jma.go.jp/bosai/forecast/data/overview_forecast/130000.json
+
+概況（七日間）
+https://www.jma.go.jp/bosai/forecast/data/overview_week/130000.json
+
+エリアコード
+https://zenn.dev/inoue2002/articles/2e07da8d0ca9ca
+
+https://anko.education/apps/weather_api
+
+
+画像取得等
+https://qiita.com/michan06/items/48503631dd30275288f7
+
+https://www.t3a.jp/blog/web-develop/weather-code-list/
+
+お天気マーク取得（コード一覧は上記のURLから）
+https://www.jma.go.jp/bosai/forecast/img/〇〇.svg
+
+
+https://poppoco.com/gas-weather08-3710/https://www.jma.go.jp/bosai/forecast/data/overview_week/130000.json
+     
+     
+     
+     */
 }
