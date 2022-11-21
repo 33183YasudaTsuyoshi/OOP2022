@@ -29,42 +29,49 @@ namespace WeatherApp {
 
         public void Acquisition(string str) {
 
+            var wc = new WebClient() {
+                Encoding = Encoding.UTF8
+            };
+            var areaCode = str;
+            var dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{areaCode}.json");
+            var bString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/forecast/{areaCode}.json");
+            var json1 = JsonConvert.DeserializeObject<Rootobject>(dString);
+            var json = JsonConvert.DeserializeObject<Class1[]>(bString);
+            
+            tbTime.Text = json[0].reportDatetime.ToString();
+            tbWeatherlnfo.Text = json1.text;
+
+
+            string weather = json[0].timeSeries[0].areas[0].weatherCodes[0];
+            pbWeather.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{weather}.png";
+            string weather1 = json[0].timeSeries[0].areas[0].weatherCodes[1];
+            pbWeather1.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{weather1}.png";
+            string weather2 = json[0].timeSeries[0].areas[0].weatherCodes[2];
+            pbWeather2.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{weather2}.png";
+
+
+            textBox1.Text = json[0].timeSeries[0].areas[0].weathers[0];
+            textBox2.Text = json[0].timeSeries[0].areas[0].weathers[1];
+            textBox3.Text = json[0].timeSeries[0].areas[0].weathers[2];
+
+            tbTemperatureMin.Text = json[1].tempAverage.areas[0].min;
+            tbTemperatureMax.Text = json[1].tempAverage.areas[0].max;
+
+
+            //tbTemperature.Text = 
             try {
-                var wc = new WebClient() {
-                    Encoding = Encoding.UTF8
-                };
-                var areaCode = tbCode.Text;
-                var dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{areaCode}.json");
-
-                var json = JsonConvert.DeserializeObject<Rootobject>(dString);
-
-                tbPresenter.Text = json.publishingOffice;
-                tbTime.Text = json.reportDatetime.ToString();
-                tbArea.Text = json.targetArea;
-                tbWeatherlnfo.Text = json.text;
-                string weather = json.text;
-
-                WeatherSearch(weather);
+                
 
             }
             catch (Exception) {               
-            }           
+            }
+            //string weather = json[0].timeSeries[0].areas[0].
+            
         }
 
         public void WeatherSearch(string weather) {
 
-
-
-            /*if (true == weather.Contains("晴")) {
-                pbWeather.ImageLocation = @"C:\Users\infosys\Pictures\Saved Pictures\cloudy.png";
-            }else if("曇")*/
-
-            //LINKを使って探す
-            //天気はURLから持ってくる　https://www.jma.go.jp/bosai/forecast/img/201.svg
-
-
-            //weather.Contains("曇");
-            //var M = weather.Contains("雨");
+            
 
         }
 
@@ -72,8 +79,6 @@ namespace WeatherApp {
 
 
         private void btWeatherGet_Click(object sender, EventArgs e) {
-
-            
 
             if (cbRegionCode.SelectedItem != null) {
 
@@ -404,16 +409,12 @@ namespace WeatherApp {
             }
             string str = tbCode.Text;
             Acquisition(str);
-
-
-
-            //pbWeather.ImageLocation = @"C:\Users\infosys\Pictures\Saved Pictures\sunny.jpg";
+            
         }
 
         private void tbDelete_Click(object sender, EventArgs e) {
-            tbPresenter.Text = null;
-            tbTime.Text = null;
-            tbArea.Text = null;
+            
+            tbTime.Text = null;            
             tbWeatherlnfo.Text = null;
             cbRegion.Text = null;
             tbCode.Text = null;

@@ -24,36 +24,46 @@ namespace WeatherApp {
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tbWeatherlnfo = new System.Windows.Forms.TextBox();
             this.btWeatherGet = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbRegionCode = new System.Windows.Forms.ComboBox();
             this.tbTime = new System.Windows.Forms.TextBox();
-            this.tbPresenter = new System.Windows.Forms.TextBox();
-            this.tbArea = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbRegion = new System.Windows.Forms.ComboBox();
             this.btSelect = new System.Windows.Forms.Button();
-            this.tbCode = new System.Windows.Forms.TextBox();
             this.tbDelete = new System.Windows.Forms.Button();
             this.pbWeather = new System.Windows.Forms.PictureBox();
+            this.tbCode = new System.Windows.Forms.TextBox();
+            this.pbWeather1 = new System.Windows.Forms.PictureBox();
+            this.pbWeather2 = new System.Windows.Forms.PictureBox();
+            this.tbTemperature = new System.Windows.Forms.TextBox();
+            this.tbTemperatureMax = new System.Windows.Forms.TextBox();
+            this.tbTemperatureMin = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbWeather)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWeather1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWeather2)).BeginInit();
             this.SuspendLayout();
             // 
             // tbWeatherlnfo
             // 
-            this.tbWeatherlnfo.Location = new System.Drawing.Point(169, 313);
+            this.tbWeatherlnfo.Location = new System.Drawing.Point(169, 268);
             this.tbWeatherlnfo.Multiline = true;
             this.tbWeatherlnfo.Name = "tbWeatherlnfo";
-            this.tbWeatherlnfo.Size = new System.Drawing.Size(502, 257);
+            this.tbWeatherlnfo.Size = new System.Drawing.Size(502, 280);
             this.tbWeatherlnfo.TabIndex = 0;
             // 
             // btWeatherGet
             // 
-            this.btWeatherGet.Location = new System.Drawing.Point(296, 272);
+            this.btWeatherGet.Location = new System.Drawing.Point(296, 210);
             this.btWeatherGet.Name = "btWeatherGet";
             this.btWeatherGet.Size = new System.Drawing.Size(66, 24);
             this.btWeatherGet.TabIndex = 1;
@@ -61,41 +71,21 @@ namespace WeatherApp {
             this.btWeatherGet.UseVisualStyleBackColor = true;
             this.btWeatherGet.Click += new System.EventHandler(this.btWeatherGet_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(22, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 27);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "発表者";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(22, 128);
+            this.label2.Location = new System.Drawing.Point(12, 161);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 27);
             this.label2.TabIndex = 2;
             this.label2.Text = "報告日時";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label3.Location = new System.Drawing.Point(22, 214);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(124, 27);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "対象地域";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label6.Location = new System.Drawing.Point(22, 313);
+            this.label6.Location = new System.Drawing.Point(22, 268);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 27);
             this.label6.TabIndex = 2;
@@ -105,40 +95,24 @@ namespace WeatherApp {
             // 
             this.cbRegionCode.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cbRegionCode.FormattingEnabled = true;
-            this.cbRegionCode.Location = new System.Drawing.Point(169, 272);
+            this.cbRegionCode.Location = new System.Drawing.Point(169, 209);
             this.cbRegionCode.Name = "cbRegionCode";
             this.cbRegionCode.Size = new System.Drawing.Size(121, 24);
             this.cbRegionCode.TabIndex = 3;
             // 
             // tbTime
             // 
-            this.tbTime.Location = new System.Drawing.Point(169, 128);
+            this.tbTime.Location = new System.Drawing.Point(169, 161);
             this.tbTime.Multiline = true;
             this.tbTime.Name = "tbTime";
-            this.tbTime.Size = new System.Drawing.Size(502, 39);
+            this.tbTime.Size = new System.Drawing.Size(193, 24);
             this.tbTime.TabIndex = 4;
-            // 
-            // tbPresenter
-            // 
-            this.tbPresenter.Location = new System.Drawing.Point(169, 48);
-            this.tbPresenter.Multiline = true;
-            this.tbPresenter.Name = "tbPresenter";
-            this.tbPresenter.Size = new System.Drawing.Size(502, 38);
-            this.tbPresenter.TabIndex = 4;
-            // 
-            // tbArea
-            // 
-            this.tbArea.Location = new System.Drawing.Point(169, 214);
-            this.tbArea.Multiline = true;
-            this.tbArea.Name = "tbArea";
-            this.tbArea.Size = new System.Drawing.Size(502, 39);
-            this.tbArea.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(22, 271);
+            this.label4.Location = new System.Drawing.Point(22, 206);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 27);
             this.label4.TabIndex = 5;
@@ -148,14 +122,14 @@ namespace WeatherApp {
             // 
             this.cbRegion.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cbRegion.FormattingEnabled = true;
-            this.cbRegion.Location = new System.Drawing.Point(368, 272);
+            this.cbRegion.Location = new System.Drawing.Point(368, 212);
             this.cbRegion.Name = "cbRegion";
             this.cbRegion.Size = new System.Drawing.Size(121, 24);
             this.cbRegion.TabIndex = 3;
             // 
             // btSelect
             // 
-            this.btSelect.Location = new System.Drawing.Point(495, 274);
+            this.btSelect.Location = new System.Drawing.Point(495, 213);
             this.btSelect.Name = "btSelect";
             this.btSelect.Size = new System.Drawing.Size(72, 24);
             this.btSelect.TabIndex = 1;
@@ -163,16 +137,9 @@ namespace WeatherApp {
             this.btSelect.UseVisualStyleBackColor = true;
             this.btSelect.Click += new System.EventHandler(this.btSelect_Click);
             // 
-            // tbCode
-            // 
-            this.tbCode.Location = new System.Drawing.Point(585, 276);
-            this.tbCode.Name = "tbCode";
-            this.tbCode.Size = new System.Drawing.Size(86, 19);
-            this.tbCode.TabIndex = 6;
-            // 
             // tbDelete
             // 
-            this.tbDelete.Location = new System.Drawing.Point(71, 547);
+            this.tbDelete.Location = new System.Drawing.Point(71, 502);
             this.tbDelete.Name = "tbDelete";
             this.tbDelete.Size = new System.Drawing.Size(75, 23);
             this.tbDelete.TabIndex = 7;
@@ -183,37 +150,150 @@ namespace WeatherApp {
             // pbWeather
             // 
             this.pbWeather.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pbWeather.Location = new System.Drawing.Point(710, 48);
+            this.pbWeather.Location = new System.Drawing.Point(678, 33);
             this.pbWeather.Name = "pbWeather";
-            this.pbWeather.Size = new System.Drawing.Size(227, 156);
+            this.pbWeather.Size = new System.Drawing.Size(208, 130);
             this.pbWeather.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbWeather.TabIndex = 8;
             this.pbWeather.TabStop = false;
+            // 
+            // tbCode
+            // 
+            this.tbCode.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tbCode.Location = new System.Drawing.Point(573, 214);
+            this.tbCode.Name = "tbCode";
+            this.tbCode.Size = new System.Drawing.Size(98, 23);
+            this.tbCode.TabIndex = 6;
+            // 
+            // pbWeather1
+            // 
+            this.pbWeather1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pbWeather1.Location = new System.Drawing.Point(678, 212);
+            this.pbWeather1.Name = "pbWeather1";
+            this.pbWeather1.Size = new System.Drawing.Size(208, 130);
+            this.pbWeather1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbWeather1.TabIndex = 8;
+            this.pbWeather1.TabStop = false;
+            // 
+            // pbWeather2
+            // 
+            this.pbWeather2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pbWeather2.Location = new System.Drawing.Point(678, 395);
+            this.pbWeather2.Name = "pbWeather2";
+            this.pbWeather2.Size = new System.Drawing.Size(208, 130);
+            this.pbWeather2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbWeather2.TabIndex = 8;
+            this.pbWeather2.TabStop = false;
+            // 
+            // tbTemperature
+            // 
+            this.tbTemperature.Location = new System.Drawing.Point(169, 33);
+            this.tbTemperature.Multiline = true;
+            this.tbTemperature.Name = "tbTemperature";
+            this.tbTemperature.Size = new System.Drawing.Size(152, 109);
+            this.tbTemperature.TabIndex = 9;
+            // 
+            // tbTemperatureMax
+            // 
+            this.tbTemperatureMax.Location = new System.Drawing.Point(404, 54);
+            this.tbTemperatureMax.Multiline = true;
+            this.tbTemperatureMax.Name = "tbTemperatureMax";
+            this.tbTemperatureMax.Size = new System.Drawing.Size(100, 88);
+            this.tbTemperatureMax.TabIndex = 10;
+            // 
+            // tbTemperatureMin
+            // 
+            this.tbTemperatureMin.Location = new System.Drawing.Point(538, 54);
+            this.tbTemperatureMin.Multiline = true;
+            this.tbTemperatureMin.Name = "tbTemperatureMin";
+            this.tbTemperatureMin.Size = new System.Drawing.Size(100, 88);
+            this.tbTemperatureMin.TabIndex = 10;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(678, 166);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(208, 19);
+            this.textBox1.TabIndex = 11;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(678, 348);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(208, 19);
+            this.textBox2.TabIndex = 11;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(678, 529);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(217, 19);
+            this.textBox3.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Location = new System.Drawing.Point(753, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 24);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "今日";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label3.Location = new System.Drawing.Point(744, 370);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 24);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "明後日";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label5.Location = new System.Drawing.Point(753, 188);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 24);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "明日";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(949, 586);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(898, 560);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbTemperatureMin);
+            this.Controls.Add(this.tbTemperatureMax);
+            this.Controls.Add(this.tbTemperature);
+            this.Controls.Add(this.pbWeather2);
+            this.Controls.Add(this.pbWeather1);
             this.Controls.Add(this.pbWeather);
             this.Controls.Add(this.tbDelete);
             this.Controls.Add(this.tbCode);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbArea);
-            this.Controls.Add(this.tbPresenter);
             this.Controls.Add(this.tbTime);
             this.Controls.Add(this.cbRegion);
             this.Controls.Add(this.cbRegionCode);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.btSelect);
             this.Controls.Add(this.btWeatherGet);
             this.Controls.Add(this.tbWeatherlnfo);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pbWeather)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWeather1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbWeather2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,20 +303,27 @@ namespace WeatherApp {
 
         private System.Windows.Forms.TextBox tbWeatherlnfo;
         private System.Windows.Forms.Button btWeatherGet;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbRegionCode;
         private System.Windows.Forms.TextBox tbTime;
-        private System.Windows.Forms.TextBox tbPresenter;
-        private System.Windows.Forms.TextBox tbArea;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbRegion;
         private System.Windows.Forms.Button btSelect;
-        private System.Windows.Forms.TextBox tbCode;
         private System.Windows.Forms.Button tbDelete;
         private System.Windows.Forms.PictureBox pbWeather;
+        private System.Windows.Forms.TextBox tbCode;
+        private System.Windows.Forms.PictureBox pbWeather1;
+        private System.Windows.Forms.PictureBox pbWeather2;
+        private System.Windows.Forms.TextBox tbTemperature;
+        private System.Windows.Forms.TextBox tbTemperatureMax;
+        private System.Windows.Forms.TextBox tbTemperatureMin;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
     }
 }
 
