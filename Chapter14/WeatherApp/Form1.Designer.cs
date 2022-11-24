@@ -24,6 +24,7 @@ namespace WeatherApp {
         /// コード エディターで変更しないでください。
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tbWeatherlnfo = new System.Windows.Forms.TextBox();
             this.btWeatherGet = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,15 +59,15 @@ namespace WeatherApp {
             // 
             // tbWeatherlnfo
             // 
-            this.tbWeatherlnfo.Location = new System.Drawing.Point(169, 212);
+            this.tbWeatherlnfo.Location = new System.Drawing.Point(175, 173);
             this.tbWeatherlnfo.Multiline = true;
             this.tbWeatherlnfo.Name = "tbWeatherlnfo";
-            this.tbWeatherlnfo.Size = new System.Drawing.Size(469, 130);
+            this.tbWeatherlnfo.Size = new System.Drawing.Size(557, 130);
             this.tbWeatherlnfo.TabIndex = 0;
             // 
             // btWeatherGet
             // 
-            this.btWeatherGet.Location = new System.Drawing.Point(322, 167);
+            this.btWeatherGet.Location = new System.Drawing.Point(386, 124);
             this.btWeatherGet.Name = "btWeatherGet";
             this.btWeatherGet.Size = new System.Drawing.Size(66, 24);
             this.btWeatherGet.TabIndex = 1;
@@ -77,8 +78,9 @@ namespace WeatherApp {
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(22, 36);
+            this.label2.Location = new System.Drawing.Point(22, 29);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 27);
             this.label2.TabIndex = 2;
@@ -87,8 +89,9 @@ namespace WeatherApp {
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label6.Location = new System.Drawing.Point(22, 212);
+            this.label6.Location = new System.Drawing.Point(31, 173);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 27);
             this.label6.TabIndex = 2;
@@ -98,24 +101,26 @@ namespace WeatherApp {
             // 
             this.cbRegionCode.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cbRegionCode.FormattingEnabled = true;
-            this.cbRegionCode.Location = new System.Drawing.Point(169, 166);
+            this.cbRegionCode.Location = new System.Drawing.Point(175, 123);
             this.cbRegionCode.Name = "cbRegionCode";
-            this.cbRegionCode.Size = new System.Drawing.Size(121, 24);
+            this.cbRegionCode.Size = new System.Drawing.Size(187, 24);
             this.cbRegionCode.TabIndex = 3;
             // 
             // tbTime
             // 
-            this.tbTime.Location = new System.Drawing.Point(169, 46);
+            this.tbTime.Font = new System.Drawing.Font("MS UI Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tbTime.Location = new System.Drawing.Point(175, 29);
             this.tbTime.Multiline = true;
             this.tbTime.Name = "tbTime";
-            this.tbTime.Size = new System.Drawing.Size(193, 24);
+            this.tbTime.Size = new System.Drawing.Size(193, 34);
             this.tbTime.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label4.Location = new System.Drawing.Point(22, 165);
+            this.label4.Location = new System.Drawing.Point(31, 123);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 27);
             this.label4.TabIndex = 5;
@@ -125,14 +130,14 @@ namespace WeatherApp {
             // 
             this.cbRegion.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cbRegion.FormattingEnabled = true;
-            this.cbRegion.Location = new System.Drawing.Point(411, 171);
+            this.cbRegion.Location = new System.Drawing.Point(475, 126);
             this.cbRegion.Name = "cbRegion";
-            this.cbRegion.Size = new System.Drawing.Size(121, 24);
+            this.cbRegion.Size = new System.Drawing.Size(163, 24);
             this.cbRegion.TabIndex = 3;
             // 
             // btSelect
             // 
-            this.btSelect.Location = new System.Drawing.Point(566, 172);
+            this.btSelect.Location = new System.Drawing.Point(654, 126);
             this.btSelect.Name = "btSelect";
             this.btSelect.Size = new System.Drawing.Size(72, 24);
             this.btSelect.TabIndex = 1;
@@ -142,7 +147,7 @@ namespace WeatherApp {
             // 
             // tbDelete
             // 
-            this.tbDelete.Location = new System.Drawing.Point(71, 319);
+            this.tbDelete.Location = new System.Drawing.Point(71, 280);
             this.tbDelete.Name = "tbDelete";
             this.tbDelete.Size = new System.Drawing.Size(75, 23);
             this.tbDelete.TabIndex = 7;
@@ -152,7 +157,7 @@ namespace WeatherApp {
             // 
             // pbWeather
             // 
-            this.pbWeather.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pbWeather.BackColor = System.Drawing.Color.White;
             this.pbWeather.Location = new System.Drawing.Point(27, 397);
             this.pbWeather.Name = "pbWeather";
             this.pbWeather.Size = new System.Drawing.Size(208, 130);
@@ -162,7 +167,7 @@ namespace WeatherApp {
             // 
             // pbWeather1
             // 
-            this.pbWeather1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pbWeather1.BackColor = System.Drawing.Color.White;
             this.pbWeather1.Location = new System.Drawing.Point(272, 397);
             this.pbWeather1.Name = "pbWeather1";
             this.pbWeather1.Size = new System.Drawing.Size(208, 130);
@@ -172,7 +177,7 @@ namespace WeatherApp {
             // 
             // pbWeather2
             // 
-            this.pbWeather2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pbWeather2.BackColor = System.Drawing.Color.White;
             this.pbWeather2.Location = new System.Drawing.Point(518, 397);
             this.pbWeather2.Name = "pbWeather2";
             this.pbWeather2.Size = new System.Drawing.Size(208, 130);
@@ -182,18 +187,21 @@ namespace WeatherApp {
             // 
             // tbTemperatureMax
             // 
-            this.tbTemperatureMax.Location = new System.Drawing.Point(401, 36);
+            this.tbTemperatureMax.AccessibleRole = System.Windows.Forms.AccessibleRole.Application;
+            this.tbTemperatureMax.Font = new System.Drawing.Font("MS UI Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tbTemperatureMax.Location = new System.Drawing.Point(475, 29);
             this.tbTemperatureMax.Multiline = true;
             this.tbTemperatureMax.Name = "tbTemperatureMax";
-            this.tbTemperatureMax.Size = new System.Drawing.Size(100, 88);
+            this.tbTemperatureMax.Size = new System.Drawing.Size(96, 50);
             this.tbTemperatureMax.TabIndex = 10;
             // 
             // tbTemperatureMin
             // 
-            this.tbTemperatureMin.Location = new System.Drawing.Point(538, 36);
+            this.tbTemperatureMin.Font = new System.Drawing.Font("MS UI Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.tbTemperatureMin.Location = new System.Drawing.Point(630, 29);
             this.tbTemperatureMin.Multiline = true;
             this.tbTemperatureMin.Name = "tbTemperatureMin";
-            this.tbTemperatureMin.Size = new System.Drawing.Size(100, 88);
+            this.tbTemperatureMin.Size = new System.Drawing.Size(96, 50);
             this.tbTemperatureMin.TabIndex = 10;
             // 
             // textBox1
@@ -212,14 +220,15 @@ namespace WeatherApp {
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(518, 529);
+            this.textBox3.Location = new System.Drawing.Point(518, 533);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(217, 19);
+            this.textBox3.Size = new System.Drawing.Size(208, 19);
             this.textBox3.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label1.Location = new System.Drawing.Point(32, 370);
             this.label1.Name = "label1";
@@ -230,6 +239,7 @@ namespace WeatherApp {
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label3.Location = new System.Drawing.Point(514, 368);
             this.label3.Name = "label3";
@@ -240,6 +250,7 @@ namespace WeatherApp {
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label5.Location = new System.Drawing.Point(277, 368);
             this.label5.Name = "label5";
@@ -259,8 +270,9 @@ namespace WeatherApp {
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label8.Location = new System.Drawing.Point(547, 138);
+            this.label8.Location = new System.Drawing.Point(639, 96);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 16);
             this.label8.TabIndex = 14;
@@ -269,8 +281,9 @@ namespace WeatherApp {
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label9.Location = new System.Drawing.Point(408, 138);
+            this.label9.Location = new System.Drawing.Point(486, 96);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(72, 16);
             this.label9.TabIndex = 14;
@@ -304,7 +317,8 @@ namespace WeatherApp {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 560);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(753, 560);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);

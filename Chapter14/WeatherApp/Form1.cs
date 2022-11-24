@@ -21,54 +21,55 @@ namespace WeatherApp {
         }
 
         public void Acquisition(string str) {
-
-            //天気情報取得
-            var wc = new WebClient() {
-                Encoding = Encoding.UTF8
-            };
-            var areaCode = str;
-            var dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{areaCode}.json");
-            var dString1 = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/forecast/{areaCode}.json");
-            var json = JsonConvert.DeserializeObject<Rootobject>(dString);
-            var json1 = JsonConvert.DeserializeObject<Class1[]>(dString1);
-
-            tbTime.Text = json1[0].reportDatetime.ToString();
-            tbWeatherlnfo.Text = json.text;
-
-            //天気画像
-            string weather = json1[0].timeSeries[0].areas[0].weatherCodes[0];
-            pbWeather.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{weather}.png";
-            string weather1 = json1[0].timeSeries[0].areas[0].weatherCodes[1];
-            pbWeather1.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{weather1}.png";
-            string weather2 = json1[0].timeSeries[0].areas[0].weatherCodes[2];
-            pbWeather2.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{weather2}.png";
-
-            //天気状況
-            textBox1.Text = json1[0].timeSeries[0].areas[0].weathers[0];
-            textBox2.Text = json1[0].timeSeries[0].areas[0].weathers[1];
-            //textBox3.Text = json1[0].timeSeries[0].areas[0].weathers[2];
-
-            //  最高気温　最低気温
-            tbTemperatureMin.Text = json1[1].tempAverage.areas[0].min;
-            tbTemperatureMax.Text = json1[1].tempAverage.areas[0].max;
-
-            //天気画像　時刻
-            label10.Text = json1[0].timeSeries[0].timeDefines[0].ToString();
-            label11.Text = json1[0].timeSeries[0].timeDefines[1].ToString();
-            label12.Text = json1[0].timeSeries[0].timeDefines[2].ToString();
-
-            btWeatherGet.Enabled = false;
-            btSelect.Enabled = false;
-
+           
             try {
-                
 
-                
+                //天気情報取得
+                var wc = new WebClient() {
+                    Encoding = Encoding.UTF8
+                };
+                var areaCode = str;
+                var dString = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/overview_forecast/{areaCode}.json");
+                var dString1 = wc.DownloadString($"https://www.jma.go.jp/bosai/forecast/data/forecast/{areaCode}.json");
+                var json = JsonConvert.DeserializeObject<Rootobject>(dString);
+                var json1 = JsonConvert.DeserializeObject<Class1[]>(dString1);
+
+                //報告日時
+                tbTime.Text = json1[0].reportDatetime.ToString();
+                tbWeatherlnfo.Text = json.text;
+
+                //天気画像
+                string weather = json1[0].timeSeries[0].areas[0].weatherCodes[0];
+                pbWeather.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{weather}.png";
+                string weather1 = json1[0].timeSeries[0].areas[0].weatherCodes[1];
+                pbWeather1.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{weather1}.png";
+                string weather2 = json1[0].timeSeries[0].areas[0].weatherCodes[2];
+                pbWeather2.ImageLocation = $"https://www.jma.go.jp/bosai/forecast/img/{weather2}.png";
+
+                //天気状況
+                textBox1.Text = json1[0].timeSeries[0].areas[0].weathers[0];
+                textBox2.Text = json1[0].timeSeries[0].areas[0].weathers[1];
+                textBox3.Text = json1[0].timeSeries[0].areas[0].weathers[2];
+
+                // 最高気温　最低気温
+                tbTemperatureMin.Text = json1[1].tempAverage.areas[0].min;
+                tbTemperatureMax.Text = json1[1].tempAverage.areas[0].max;
+
+                //天気画像　時刻
+                label10.Text = json1[0].timeSeries[0].timeDefines[0].ToString();
+                label11.Text = json1[0].timeSeries[0].timeDefines[1].ToString();
+                label12.Text = json1[0].timeSeries[0].timeDefines[2].ToString();
+
+                btWeatherGet.Enabled = false;
+                btSelect.Enabled = false;
+
+                this.tbTemperatureMax.ForeColor = Color.Red;
+                this.tbTemperatureMin.ForeColor = Color.Blue;
+
             }
-            catch (Exception) {               
-            }
-            
-            
+            catch (Exception) {
+                MessageBox.Show("ネットワークに接続されていません");
+            }            
         }
 
         public void RegionCode() {
@@ -79,13 +80,6 @@ namespace WeatherApp {
 
             btSelect.Enabled = false;
         }
-
-        public void WeatherSearch(string weather) {
-
-            
-
-        }
-
 
         private void btWeatherGet_Click(object sender, EventArgs e) {
 
@@ -179,12 +173,11 @@ namespace WeatherApp {
             } else {
                 btSelect.Enabled = false;
             }
+            btWeatherGet.Enabled = false;
         }
 
         private void btSelect_Click(object sender, EventArgs e) {
-
-            
-
+           
             switch (cbRegion.Text) {
 
                 case "宗谷地方":
@@ -419,14 +412,10 @@ namespace WeatherApp {
                     Code = "474000";
                     break;
 
-                
-
             }
-            
-            
+                        
             Acquisition(Code);
-            
-
+           
         }
 
         private void tbDelete_Click(object sender, EventArgs e) {
@@ -435,12 +424,17 @@ namespace WeatherApp {
             tbWeatherlnfo.Text = null;
             cbRegion.Text = null;
             cbRegionCode.Text = null;
-            cbRegion.Items.Clear();
             btSelect.Enabled = false;
             pbWeather.Image = null;
             btWeatherGet.Enabled = true;
-        }
+            tbTemperatureMax.Text = null;
+            tbTemperatureMin.Text = null;
+            pbWeather1.Image = null;
+            pbWeather2.Image = null;
+            textBox1.Text = null;
+            textBox2.Text = null;
+            textBox3.Text = null;
 
-        
+        }       
     }
 }

@@ -14,8 +14,6 @@ namespace WeatherApp {
         public string text { get; set; }
     }
 
-
-
     public class Rootobject1 {
         public Class1[] Property1 { get; set; }
     }
