@@ -435,6 +435,7 @@ namespace WeatherApp {
             textBox2.Text = null;
             textBox3.Text = null;
 
+
         }       
     }
 }
